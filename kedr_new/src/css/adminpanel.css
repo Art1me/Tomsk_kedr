@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Merriweather", serif;
+  background-color: #f4f4f4;
+}
+
+.admin-panel-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Верхняя панель */
+.header {
+  background: linear-gradient(to bottom, #7d9652, #708644);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.header-title {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.tree-icon {
+  width: 35px;
+  height: 35px;
+  background-color: #a4c76a;
+  border-radius: 50% 50% 0 0;
+  display: inline-block;
+}
+
+/* Основной контейнер */
+.main-wrapper {
+  display: flex;
+  flex: 1;
+}
+
+/* --- НОВЫЙ САЙДБАР (по вашему скриншоту) --- */
+.sidebar {
+  width: 280px;
+  background-color: #f3f3f0; /* Светло-серый фон */
+  padding-top: 30px;
+  padding-left: 20px;
+  flex-shrink: 0;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 15px;
+  margin-bottom: 5px;
+  cursor: pointer;
+
+  font-size: 15px;
+  font-weight: 400;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.sidebar-item:hover {
+  background-color: #e8e8e4;
+}
+
+.sidebar-item.active {
+  background-color: #e8e8e4; /* Подсветка активного */
+}
+
+/* Цвет иконок в сайдбаре */
+
+/* Контент */
+.content {
+  flex: 1;
+  padding: 30px;
+  background-color: #f3f3f0;
+}
+
+.page-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #1a1a1a;
+}
+
+/* Карточки */
+.card {
+  background: white;
+  border: 1px solid #8fa862;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Инпуты */
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+label {
+  font-size: 12px;
+  margin-bottom: 5px;
+  color: #555;
+}
+input {
+  background-color: #eaeaea;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-family: "Merriweather", serif;
+  font-size: 11px;
+  width: 100%;
+}
+
+/* Сетка людей */
+.people-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+.people-card {
+  flex: 1;
+  border: 1px solid #8fa862;
+  border-radius: 12px;
+  padding: 15px;
+  background: white;
+}
+
+/* Кнопки */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  margin-top: 20px;
+}
+.btn {
+  padding: 10px 30px;
+  border-radius: 20px;
+  border: 1px solid #8fa862;
+  background: transparent;
+  cursor: pointer;
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  color: #3e5a22;
+}
+.btn-cancel {
+  border: 1px solid #8fa862;
+}
+.btn-save {
+  background-color: #8fa862;
+  color: white;
+}
+.btn-save:hover {
+  background-color: #7a964d;
+}
+
+/* Адаптив */
+@media (max-width: 900px) {
+  .main-wrapper {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    overflow-x: auto;
+  }
+  .people-grid,
+  .form-row {
+    flex-direction: column;
+  }
+}

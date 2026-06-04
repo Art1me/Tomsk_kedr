@@ -1,0 +1,184 @@
+
+.container{
+  padding: 3% 15% 3% 12%;
+  background-color: rgba(241, 242, 235, 1);
+}
+
+.header{
+  font-size: min(40px, calc(11px + 8 * ((100vw - 320px) / 1024)));
+  width: 100%;
+  text-align: center;
+}
+
+.form {
+    font-size: min(40px, calc(10px + 7 * ((100vw - 320px) / 1024)));
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+  }
+  
+  .input {
+    padding: 10px;
+    font-size: min(40px, calc(4px + 12 * ((100vw - 320px) / 1024)));
+    border: 2px solid rgba(101, 140, 84, 1);
+    border-radius: 12px;
+    min-height: 26px;
+    max-width: 750px;
+    font-family: "Merriweather";
+  }
+
+  .input[id="login"]{
+    margin-bottom: 3% !important;
+  }
+
+  .input::placeholder {
+    font-size: 16px !important;
+    color: #b1b1b1;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .button_con{
+    display: flex;
+    width: 100%;
+    justify-content: center;;
+  }
+
+  .button {
+    font-size: min(40px, calc(10px + 7 * ((100vw - 320px) / 1024)));
+    min-width: 50%;
+    font-family: "Merriweather";
+    margin-top: 8%;
+    background-color: white;
+    border: 2px solid rgba(101, 140, 84, 1);
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    color: black;
+  }
+  
+  .button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .reg_button {
+    font-size: min(40px, calc(8px + 7 * ((100vw - 320px) / 1024)));
+    margin-top: 15px;
+    cursor: pointer;
+    text-decoration: underline;
+    text-align: center;
+  }
+
+  .reg_button:nth-child(2) {
+    margin: 0;
+    cursor: pointer;
+    text-decoration: underline;
+  }  
+
+  .error {
+    color: #ff0000;
+    font-size: min(40px, calc(8px + 7 * ((100vw - 320px) / 1024)));
+    margin: 5px 0;
+    padding: 5px 10px;
+    background-color: rgba(255, 0, 0, 0.1);
+    border-radius: 8px;
+    border-left: 3px solid #ff0000;
+    animation: slideIn 0.3s ease-out;
+  }
+
+  .success {
+    color: rgba(101, 140, 84, 1);
+    font-size: min(40px, calc(8px + 7 * ((100vw - 320px) / 1024)));
+    margin: 5px 0;
+    padding: 5px 10px;
+    background-color: rgba(101, 140, 84, 0.1);
+    border-radius: 8px;
+    border-left: 3px solid rgba(101, 140, 84, 1);
+    animation: slideIn 0.3s ease-out;
+  }
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+@media (max-width: 1280px) {
+  .container{
+    padding: 7% 10%;
+  }
+
+  .input{
+    padding: 6px 10px;
+  }
+
+  .header > p{
+    margin: 0;
+  }
+
+  .button{
+    margin-top: 5%;
+  }
+  
+  .reg_button{
+    margin: 0;
+  }
+
+  .footer{
+    gap: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .input{
+    font-size: 13px;
+  }
+  .header > p{
+    font-size: 15px;
+  }
+  .form > label{
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 426px) {
+  .form{
+    margin-top: 20px;
+  }
+
+  .header > p{
+    font-size: 13px;
+    }
+  .reg_button{
+    font-size: 10px;
+  }
+
+  .button{
+    padding: 7px 10px;
+    border: 1.5px solid rgba(101, 140, 84, 1);
+  }
+
+  .input{
+    padding: 4px 10px;
+    border: 1px solid rgba(101, 140, 84, 1);
+  }
+}

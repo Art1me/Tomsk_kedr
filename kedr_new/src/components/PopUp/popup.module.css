@@ -1,0 +1,256 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.overlay.closing {
+  animation: fadeOut 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.content {
+  font-family: "Merriweather";
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 24px;
+  width: 90%;
+  max-width: 1200px;
+  max-height: 90%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE и Edge */
+  animation: slideIn 0.3s ease-out;
+}
+
+.content.closing {
+  animation: slideOut 0.3s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+.close {
+  width: 35px;
+  cursor: pointer;
+  filter: brightness(0);
+  transition: transform 0.2s ease;
+}
+
+.close:hover {
+  transform: scale(1.1);
+}
+
+/* иконка закрытия */
+.header {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.helpPopUp {
+  position: absolute;
+  background-image: url("../../../public/tree-icon2.png");
+  /* height: 40vh; */
+  max-height: 60vh;
+  background-repeat: no-repeat;
+  background-size: 20%;
+  background-position: left bottom;
+  z-index: -1;
+  padding: 5%;
+  overflow-y: hidden;
+}
+
+.helpPopUp::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 12%;
+  height: 42%;
+  background: url("../../../public/tree-icon2.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right bottom;
+  opacity: 0.4;
+  z-index: -1;
+  pointer-events: none;
+  transform: scaleX(-1);
+}
+
+.HelpText {
+  text-align: center;
+}
+
+.UnDeathPopUp {
+  background-color: rgba(101, 140, 84, 1);
+}
+
+.AlertPopUp {
+  padding: 5%;
+  max-width: 35%;
+  min-width: max-content;
+  background-color: white;
+  background-image:
+    url("../../../public/icon-trees.png"),
+    url("../../../public/tree-reverse.png");
+  background-repeat: no-repeat;
+  background-size: 20%, 10%;
+  background-position:
+    left bottom,
+    right bottom;
+  min-height: 65px;
+  z-index: 2001 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.AlertPopUpText {
+  text-align: center;
+  font-size: min(40px, calc(10px + 16 * ((100vw - 320px) / 1024)));
+}
+
+.LogPopUp {
+  min-height: min-content;
+  max-height: 98%;
+  min-width: max-content;
+  overflow-y: hidden;
+}
+
+.resetPassword {
+  background-color: #6f8b41;
+  padding: 55px;
+  max-width: 400px;
+  width: 90%;
+  margin: 20px auto;
+  color: white;
+}
+
+.resetPassword .close {
+  filter: brightness(0) invert(1);
+}
+
+.content.small {
+  max-width: 500px !important;
+}
+.content.normal {
+  max-width: 700px;
+}
+
+@media (max-width: 1600px) {
+  .content {
+    max-width: 1100px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .content {
+    max-width: 900px;
+  }
+  .content.normal {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 900px) {
+  .content {
+    max-width: 350px;
+  }
+  .content.normal {
+    max-width: 200px !important;
+  }
+  .content.small {
+    max-width: 200px !important;
+  }
+}
+
+@media (max-width: 610px) {
+  .content {
+    max-width: 375px;
+  }
+
+  .close {
+    width: 18px;
+  }
+
+  .resetPassword {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  .content {
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 426px) {
+  .AlertPopUp {
+    padding: 3%;
+  }
+
+  .resetPassword {
+    padding: 38px 17px 26px;
+    max-width: 260px !important;
+  }
+  /* .content{
+    max-width: 237px;
+  } */
+}
+
+@media (max-width: 380px) {
+  .content {
+    max-width: 270px;
+  }
+  .content.normal {
+    max-width: 340px;
+  }
+
+  .header {
+    top: 13px;
+    right: 13px;
+  }
+}

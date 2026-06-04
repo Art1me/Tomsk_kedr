@@ -1,0 +1,665 @@
+.header {
+  background-color: #9fbc4e;
+  display: flex;
+  position: fixed !important;
+  top: 0;
+  left: 50%;
+  height: 8vw;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 999 !important;
+  max-width: 100%;
+  min-height: max-content;
+  align-items: center;
+}
+
+@-moz-document url-prefix() {
+  .header {
+    background-color: #9fbc4e !important;
+  }
+
+  .header > div {
+    gap: clamp(5px, 1vw, 15px) !important;
+    margin: 0 clamp(10px, 4vw, 50px) !important;
+    max-width: calc(100% - 8vw) !important;
+    box-sizing: border-box !important;
+  }
+
+  .header > div > * {
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .button {
+    width: auto !important;
+    min-width: clamp(100px, 15vw, 200px) !important;
+    max-width: 100% !important;
+    font-size: clamp(14px, 2.2vw, 20px) !important;
+    border-width: 2px !important;
+    padding: 12px 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  .userInfo {
+    font-size: clamp(16px, 2.8vw, 22px) !important;
+    min-width: 0 !important;
+    padding-left: 2% !important;
+    box-sizing: border-box !important;
+  }
+
+  .contactsRow {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .contactsPopup {
+    width: auto !important;
+    min-width: 250px;
+  }
+
+  .contactsRow,
+  .contactsIcon,
+  .contactsPhone,
+  .contactsMail {
+    font-size: clamp(14px, 2.2vw, 20px) !important;
+  }
+
+  @media (max-width: 2560px) {
+    .button {
+      font-size: clamp(18px, 3vw, 28px) !important;
+      padding: 16px 28px !important;
+      min-width: clamp(150px, 18vw, 280px) !important;
+      border-width: 3px !important;
+    }
+
+    .userInfo {
+      font-size: clamp(20px, 3.5vw, 30px) !important;
+    }
+
+    .header > div {
+      gap: 1.5vw !important;
+    }
+
+    .contactsRow,
+    .contactsIcon,
+    .contactsPhone,
+    .contactsMail {
+      font-size: clamp(16px, 2.6vw, 24px) !important;
+    }
+  }
+
+  @media (max-width: 1350px) {
+    .button {
+      font-size: clamp(14px, 2.2vw, 20px) !important;
+      padding: 10px 18px !important;
+      min-width: clamp(120px, 15vw, 200px) !important;
+      border-width: 2px !important;
+    }
+
+    .userInfo {
+      font-size: clamp(16px, 2.6vw, 22px) !important;
+    }
+
+    .header > div {
+      gap: 2vw !important;
+    }
+
+    .contactsRow,
+    .contactsIcon,
+    .contactsPhone,
+    .contactsMail {
+      font-size: clamp(13px, 2vw, 18px) !important;
+    }
+  }
+
+  @media (max-width: 940px) {
+    .button {
+      min-width: max-content !important;
+    }
+  }
+
+  @media (max-width: 868px) {
+    .button {
+      font-size: clamp(11px, 1.6vw, 15px) !important;
+      padding: 7px 12px !important;
+      min-width: clamp(100px, 14vw, 180px) !important;
+      border-width: 1.5px !important;
+    }
+
+    .userInfo {
+      font-size: clamp(13px, 2vw, 17px) !important;
+    }
+
+    .contactsRow,
+    .contactsIcon,
+    .contactsPhone,
+    .contactsMail {
+      font-size: clamp(11px, 1.8vw, 16px) !important;
+    }
+
+    .header > div {
+      gap: 1.8vw !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .button {
+      font-size: clamp(12px, 1.8vw, 16px) !important;
+      padding: 8px 15px !important;
+    }
+
+    .userInfo {
+      font-size: clamp(14px, 2.4vw, 18px) !important;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .button {
+      padding: 6px 12px !important;
+      font-size: clamp(11px, 1.6vw, 14px) !important;
+      min-width: clamp(90px, 15vw, 160px) !important;
+    }
+
+    .contactsMail,
+    .contactsPhone {
+      font-size: clamp(12px, 2vw, 16px) !important;
+    }
+
+    .header > div {
+      gap: 2vw !important;
+    }
+  }
+
+  @media (max-width: 566px) {
+    .button {
+      font-size: clamp(10px, 1.4vw, 12px) !important;
+      padding: 5px 10px !important;
+      min-width: clamp(80px, 14vw, 140px) !important;
+      border-width: 1.5px !important;
+    }
+
+    .userInfo {
+      font-size: clamp(12px, 2vw, 16px) !important;
+    }
+
+    .contactsIcon {
+      font-size: clamp(12px, 2vw, 16px) !important;
+    }
+
+    .contactsPhone,
+    .contactsMail {
+      font-size: clamp(10px, 1.8vw, 14px) !important;
+    }
+
+    .header > div {
+      gap: 2.5vw !important;
+    }
+  }
+
+  @media (max-width: 426px) {
+    .button {
+      display: none !important;
+    }
+
+    .userInfo {
+      font-size: clamp(13px, 3vw, 17px) !important;
+    }
+
+    .contactsIcon {
+      font-size: clamp(14px, 2.5vw, 18px) !important;
+    }
+
+    .contactsPhone,
+    .contactsMail {
+      font-size: clamp(12px, 2.2vw, 16px) !important;
+    }
+  }
+}
+
+.header > div {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: -webkit-fill-available;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 0.5vw;
+  height: max-content;
+  position: absolute;
+  align-items: center;
+  margin: 0 4vw;
+}
+
+.burger_button {
+  position: absolute;
+  top: 50%;
+  left: 4vw;
+  transform: translateY(-50%);
+  font-size: clamp(10px, 9.5vw, 40px);
+  cursor: pointer;
+  z-index: 1000;
+  display: none;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.burger_button.burger_active {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.button {
+  font-family: "Merriweather";
+  height: min-content;
+  font-size: min(40px, calc(5px + 13 * ((100vw - 320px) / 1024)));
+  padding: 12px;
+  width: 15vw;
+  border: 0.26vw solid white;
+  cursor: pointer;
+  background-color: rgba(28, 28, 28, 0);
+  color: #f1f2eb;
+}
+
+.button:hover {
+  transform: scale(1.05);
+}
+
+.button_immortal {
+  background-color: #f1f2eb;
+  color: black;
+  border: 0.13vw solid black;
+  height: min-content;
+  font-size: min(40px, calc(5px + 13 * ((100vw - 320px) / 1024)));
+  padding: 16px;
+}
+
+.userContainer {
+  position: relative;
+  display: flex;
+}
+
+.userInfo {
+  font-family: "Merriweather";
+  background: none;
+  border: none;
+  font-size: min(40px, calc(5px + 16 * ((100vw - 320px) / 1024)));
+  color: #f1f2eb;
+  padding-left: 2%;
+  white-space: nowrap;
+  overflow: hidden;
+  min-width: max-content;
+  cursor: pointer;
+}
+
+.userInfo:hover {
+  text-decoration: underline;
+}
+
+.logoutPopup {
+  position: absolute !important;
+  left: 0;
+  top: 100%;
+  margin-top: 8px;
+  min-width: 180px;
+  background: #fff;
+  border: 3px solid #658c54;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  z-index: 1000;
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: top;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.logoutButton {
+  font-family: "Merriweather";
+  background: none;
+  color: #222;
+  border: none;
+  padding: 10px 20px;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.logoutButton:hover {
+  background: #f3f7e7;
+}
+
+.myCedarsButton {
+  margin-top: 10px;
+  background: #e6f2d9;
+  color: #2d3a1d;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 18px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.myCedarsButton:hover {
+  background: #cde3b0;
+}
+
+.hiddenButton {
+  color: transparent !important;
+  background: transparent !important;
+  border-color: transparent !important;
+  pointer-events: none !important;
+}
+
+.contactsRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Merriweather", serif;
+  font-size: min(40px, calc(9px + 13 * ((100vw - 320px) / 1024)));
+  color: #6b8e47;
+  font-weight: 500;
+}
+
+.contactsPhone,
+.contactsMail {
+  font-size: min(40px, calc(7px + 16 * ((100vw - 320px) / 1024)));
+  color: #6b8e47;
+  font-family: "Merriweather", serif;
+}
+
+.contactsDivider {
+  width: 100%;
+  height: 0.1vw;
+  background: #222;
+  margin: 0;
+}
+
+.modalContent {
+  position: fixed !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  z-index: 1004 !important;
+  background-color: #f8f9f2;
+  border-radius: 16px;
+  border: 4px solid #7ca04b;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.modalButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 24px;
+}
+
+.modalButtons button {
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "Merriweather";
+  font-size: 1rem;
+  font-weight: 700;
+  background: #7ca04b;
+  color: #fff;
+  transition: background 0.2s;
+}
+
+.modalButtons button:last-child {
+  background: #e0e0e0;
+  color: #333;
+}
+
+.modalButtons button:first-child:hover {
+  background: #5e7d3a;
+}
+
+.modalButtons button:last-child:hover {
+  background: #bcbcbc;
+}
+
+.invisible {
+  visibility: hidden !important;
+}
+
+@media (max-width: 2560px) {
+  .header {
+    height: 10vw;
+  }
+
+  .button {
+    height: min-content;
+    font-size: min(40px, calc(9px + 13 * ((100vw - 320px) / 1024)));
+    padding: 12px;
+    min-width: 20vw;
+  }
+
+  .userInfo {
+    font-size: min(30px, calc(8px + 16 * ((100vw - 320px) / 1024)));
+  }
+
+  .header > div {
+    gap: 1vw;
+  }
+}
+
+@media (max-width: 1350px) {
+  .header {
+    height: 10vw;
+  }
+
+  .button {
+    height: min-content;
+    font-size: min(40px, calc(9px + 13 * ((100vw - 320px) / 1024)));
+    padding: 12px;
+    min-width: 20vw;
+  }
+
+  .userInfo {
+    font-size: min(30px, calc(8px + 16 * ((100vw - 320px) / 1024)));
+  }
+
+  .header > div {
+    gap: 2vw;
+  }
+}
+
+@media (max-width: 940px) {
+  .button {
+    min-width: max-content;
+  }
+}
+
+@media (max-width: 900px) {
+  .contactsPopup {
+    padding: 2vw 2.5vw;
+    border: 3px solid #6b8e47;
+    gap: 1.5vw;
+  }
+
+  .logoutButton {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .logoutPopup {
+    padding: 5px 0;
+    min-width: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .button {
+    font-size: min(40px, calc(7px + 13 * ((100vw - 320px) / 1024)));
+    padding: 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  .button {
+    padding: 5px;
+    font-size: min(40px, calc(7px + 12 * ((100vw - 320px) / 1024)));
+    min-width: 21vw;
+  }
+
+  .contactsMail,
+  .contactsPhone {
+    font-size: min(30px, calc(6px + 16 * ((100vw - 320px) / 1024)));
+    white-space: nowrap;
+  }
+
+  .contactsPopup {
+    border: 2px solid #6b8e47;
+    border-radius: 13px;
+  }
+
+  .header > div {
+    gap: 2vw;
+  }
+
+  .contactsDivider {
+    height: 0.2vw;
+  }
+}
+
+@media (max-width: 426px) {
+  .button {
+    display: none !important;
+  }
+
+  .burger_button {
+    display: block;
+  }
+
+  .header {
+    background-color: #6f8b41;
+    height: 15vw;
+  }
+
+  .header > div {
+    margin: 0;
+    margin-right: 3vw;
+  }
+
+  .contactsPopup {
+    border-radius: 10px;
+    width: auto;
+    top: 8vw;
+    left: 13.5vw;
+    padding: 3vw 3.5vw;
+  }
+
+  .userInfo {
+    font-size: min(30px, calc(12px + 35 * ((100vw - 320px) / 1024)));
+  }
+
+  .contactsIcon {
+    font-size: min(40px, calc(16px + 25 * ((100vw - 320px) / 1024)));
+  }
+
+  .contactsPhone,
+  .contactsMail {
+    font-size: min(30px, calc(13px + 24 * ((100vw - 320px) / 1024)));
+  }
+}
+
+.burger_modal {
+  position: fixed;
+  top: 15vw;
+  left: 0;
+  width: 14vw;
+  height: 100vh;
+  background-color: #9fbc4e;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 5px;
+  gap: 20px;
+  align-items: center;
+  transform: translateX(-100%);
+  animation: slideIn 0.3s ease-out forwards;
+  border-right: 2px solid #6b8e47;
+}
+
+.burger_modal.closing {
+  animation: slideOut 0.3s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.burger_modal_button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.burger_modal_icon {
+  font-size: clamp(10px, 7vw, 40px);
+  color: #f1f2eb;
+  transition: transform 0.2s;
+}
+
+.burger_modal_button:hover .burger_modal_icon {
+  transform: scale(1.2);
+}
+
+.burger_cedar_button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.burger_cedar_icon {
+  width: 28px;
+  height: 46px;
+  transition: transform 0.2s;
+}
+
+.burger_cedar_button:hover .burger_cedar_icon {
+  transform: scale(1.2);
+}

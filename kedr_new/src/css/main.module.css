@@ -1,0 +1,287 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.main {
+  background-color: rgba(241, 242, 235, 1);
+  margin: 0;
+  padding: 0;
+  max-width: 3200px;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  min-height: max-content;
+  font-family: "Merriweather";
+  /* border: 2px solid greenyellow; */
+}
+
+.main:first-child {
+  position: relative;
+  top: 8vw;
+  display: flex;
+  background-color: #f8f8f2; /* основной фон */
+}
+
+/* Псевдоэлемент с картинкой */
+.main:first-child::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 43.5%;
+  height: 100%;
+  background-image: url("main_page_img.jpg");
+  background-size: 238%;
+  background-position: bottom;
+  border-bottom-right-radius: 30% 50%; /* эффект как на макете */
+  z-index: 0; /* чтобы был под контентом */
+  overflow: hidden;
+}
+
+/* Обертка для контента внутри блока */
+.main > * {
+  position: relative;
+  z-index: 1; /* контент поверх картинки */
+}
+
+.main:nth-child(2) {
+  margin-top: 8vw;
+}
+
+.helpcircle {
+  position: fixed;
+  right: 6vh;
+  bottom: 6vh;
+  width: 160px;
+  aspect-ratio: 1 / 1;
+  background-color: white;
+  border-radius: 50%;
+  border: 0.36vw solid rgba(111, 139, 65, 1);
+  cursor: pointer;
+  font-size: 2.6vw;
+  font-family: "Inter";
+  font-weight: 700;
+  color: rgba(111, 139, 65, 1);
+  z-index: 999;
+}
+
+.helpcircle:hover {
+  transform: scale(1.05);
+}
+
+.cont_map {
+  width: 90%;
+  margin: auto;
+}
+
+.title_map {
+  margin: 0;
+  margin-top: 7vh;
+  margin-left: 4vh;
+  font-size: min(34px, calc(10px + 18 * ((100vw - 320px) / 1024)));
+}
+
+.block_map {
+  width: 100%;
+  margin: auto;
+  margin-top: 3vh;
+  height: 74vh;
+  border-radius: 16px;
+  box-shadow: 0 6px 8px rgba(80, 100, 60, 0.27);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.block_map .leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 16px;
+}
+
+.block_map > p {
+  margin-left: 2vw;
+  font-size: min(45px, calc(13px + 21 * ((100vw - 320px) / 1024)));
+}
+
+.cedar_guide_banner {
+  width: 90%; /* Как у "Почему это важно" */
+  margin: 4vh auto 2vh auto; /* Отступы сверху и снизу */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px 0; /* Внутренние отступы */
+  background-color: transparent; /* Прозрачный фон (или rgba(241, 242, 235, 1) если нужен) */
+  font-family: "Merriweather", serif;
+}
+
+.cedar_guide_title {
+  margin: 0;
+  font-size: clamp(
+    22px,
+    2.5vw,
+    40px
+  ); /* Плавный размер шрифта как у заголовков */
+  font-weight: 700;
+  color: #000;
+  line-height: 1.2;
+  max-width: 60%;
+}
+
+.cedar_guide_btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #ffffff;
+  padding: 15px 30px; /* Кнопка стала чуть больше */
+  border-radius: 4px; /* Легкое скругление */
+  font-family: "Merriweather", serif;
+  font-size: clamp(14px, 1.3vw, 20px); /* Размер текста кнопки */
+  color: #000;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.cedar_guide_btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.arrow {
+  font-size: 1.2em;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+@media (max-width: 2560px) {
+  .main:first-child {
+    top: 10vw;
+  }
+
+  .main:nth-child(2) {
+    margin-top: 10vw;
+  }
+
+  .helpcircle {
+    right: 2.5vw;
+    width: clamp(70px, 10vw, 120px);
+  }
+}
+
+@media (max-width: 1800px) {
+  .main:first-child {
+    top: 10vw;
+  }
+
+  .main:nth-child(2) {
+    margin-top: 10vw;
+  }
+
+  .helpcircle {
+    right: 3vw;
+    width: clamp(40px, 5vw, 80px);
+  }
+}
+
+@media (max-width: 1000px) {
+  .helpcircle {
+    width: clamp(20px, 5vw, 80px);
+    font-size: 3vw;
+    border: 0.4vw solid rgba(111, 139, 65, 1);
+  }
+  .cedar_guide_banner {
+    width: 92%;
+  }
+  .cedar_guide_title {
+    font-size: clamp(20px, 3vw, 32px);
+  }
+  .cedar_guide_btn {
+    font-size: clamp(14px, 1.5vw, 18px);
+    padding: 12px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .helpcircle {
+    width: clamp(20px, 6vw, 80px);
+    font-size: 3.5vw;
+    border: 0.45vw solid rgba(111, 139, 65, 1);
+  }
+  .cedar_guide_banner {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 92%;
+    margin-top: 3vh;
+    padding: 10px 0;
+  }
+
+  .cedar_guide_title {
+    max-width: 100%;
+    font-size: clamp(20px, 5vw, 28px);
+  }
+
+  .cedar_guide_btn {
+    white-space: normal;
+    width: 100%;
+    justify-content: center;
+    padding: 14px 20px;
+    font-size: clamp(14px, 3.5vw, 18px);
+  }
+}
+
+@media (max-width: 426px) {
+  .main:first-child {
+    top: 15vw;
+  }
+
+  .main:first-child::before {
+    width: 0%;
+  }
+
+  .main:nth-child(2) {
+    margin-top: 15vw;
+  }
+
+  .title_map {
+    margin: 10vw auto 5vw auto;
+    text-align: center;
+    font-size: min(30px, calc(14px + 50 * ((100vw - 320px) / 1024)));
+    font-weight: 300;
+    width: 100%;
+  }
+
+  .helpcircle {
+    width: clamp(20px, 10vw, 80px);
+    font-size: 5.5vw;
+    border: 0.8vw solid rgba(111, 139, 65, 1);
+    bottom: 7vw;
+    right: 3vw;
+  }
+  .cedar_guide_banner {
+    width: 90%;
+    padding: 5px 0;
+  }
+  .cedar_guide_title {
+    font-size: clamp(18px, 6vw, 24px);
+  }
+  .cedar_guide_btn {
+    font-size: clamp(12px, 4vw, 16px);
+    padding: 12px 16px;
+  }
+}

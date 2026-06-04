@@ -1,0 +1,1012 @@
+.page_wrapper {
+  font-family: "Merriweather";
+  width: 100vw;
+  min-height: 91vh;
+  overflow-x: hidden;
+  background: #f7f8f3;
+}
+
+.hero_section {
+  width: 100vw;
+  min-height: 91vh;
+  background: rgba(159, 188, 78, 1);
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero_overlay {
+  position: absolute;
+  left: 32px;
+  bottom: 20px;
+  width: 50%;
+  height: 70%;
+  background: url("../../public/background-regkedr.png") center center/cover
+    no-repeat;
+  z-index: 1;
+}
+
+.hero_text_overlay {
+  position: absolute;
+  right: 0vw;
+  bottom: 0px;
+  transform: translateY(-30%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 58%;
+  /* max-width: 520px; */
+  gap: 16vh;
+}
+
+.memory_label {
+  background: #fff;
+  color: #222;
+  border-top-left-radius: 32px;
+  border-bottom-left-radius: 32px;
+  padding: 15px 44px;
+  font-size: min(43px, calc(13px + 10 * ((100vw - 320px) / 1024)));
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(80, 100, 60, 0.07);
+  display: inline-block;
+}
+.memory_label span {
+  color: #7ca04b;
+  font-weight: 700;
+}
+
+.hero_title_block {
+  /* margin-bottom: 32px; */
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+.hero_title {
+  background: #fff;
+  color: #222;
+  /* border-radius: 8px; */
+  padding: 24px 65px;
+  font-size: min(60px, calc(14px + 28 * ((100vw - 320px) / 1024)));
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(80, 100, 60, 0.07);
+  line-height: 1.2;
+  /* max-width: 420px; */
+}
+.cedr_word {
+  color: #7ca04b;
+  font-weight: 700;
+}
+
+.hero_trees {
+  position: absolute;
+  right: -2px;
+  bottom: -67px;
+  background: url("../../public/regkedr-trees-back.png") no-repeat right bottom;
+  width: 21vw;
+  height: 52vh;
+  background-size: contain;
+  z-index: 2;
+}
+
+/* Секции шагов */
+.step_section {
+  margin-top: 7vw;
+  margin-bottom: 7vw;
+  max-width: 100vw;
+  min-height: max-content;
+  max-height: 100vh;
+  background: #f7f8f3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.step_title_block {
+  width: 80%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.step_title {
+  font-size: min(34px, calc(17px + 20 * ((100vw - 320px) / 1024)));
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 32px;
+}
+.step_title span {
+  color: #7ca04b;
+}
+
+.map_block {
+  width: 80vw;
+  height: 70vh;
+  background: #d8efd0;
+  border-radius: 16px;
+  box-shadow: 0 6px 8px rgba(80, 100, 60, 0.27);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.map_block .leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 16px;
+}
+
+.reg_kedr_form {
+  width: 100%;
+  margin-top: 32px;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+}
+.form_grid {
+  width: 80vw;
+  display: flex;
+  flex-direction: row;
+  gap: 6vw;
+}
+
+.form_left {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  justify-content: space-between;
+}
+
+.input_group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.input_group:last-child > input {
+  width: 50%;
+  margin-bottom: 0;
+}
+
+.form_left label {
+  font-size: min(22px, calc(9px + 18 * ((100vw - 320px) / 1024)));
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 1vw;
+  width: 100%;
+}
+
+.form_right label {
+  text-align: left;
+  margin-bottom: 1vw;
+  font-size: min(22px, calc(9px + 18 * ((100vw - 320px) / 1024)));
+}
+
+.textarea {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 140px;
+  max-height: 140px;
+  border: 2px solid #7ca04b;
+  border-radius: 8px;
+  padding: 1vw;
+  font-size: min(22px, calc(7px + 10 * ((100vw - 320px) / 1024)));
+  margin-bottom: 24px;
+  box-shadow: 0 6px 8px rgba(80, 100, 60, 0.27);
+  resize: vertical;
+}
+
+.textarea::placeholder {
+  font-style: italic;
+  color: #b1b1b1;
+}
+
+.input {
+  font-family: "Merriweather";
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid #7ca04b;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: min(22px, calc(8px + 18 * ((100vw - 320px) / 1024)));
+  margin-bottom: 24px;
+  box-shadow: 0 6px 8px rgba(80, 100, 60, 0.27);
+}
+
+.input::placeholder,
+.input::-webkit-input-placeholder,
+.input::-moz-placeholder,
+.input:-ms-input-placeholder,
+.input::-ms-input-placeholder {
+  font-size: 16px !important;
+  color: #b1b1b1;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.input[type="date"] {
+  text-transform: uppercase;
+  font-style: italic;
+  font-weight: 400;
+  position: relative;
+  padding-right: 40px !important;
+}
+
+.input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  background: url("../../public/mynaui_calendar.svg") no-repeat center;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  filter: none;
+  opacity: 1;
+  display: block;
+  border-width: thin;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.input[type="date"]::-webkit-datetime-edit {
+  padding: 0;
+}
+
+.input[type="date"]:invalid {
+  color: #b1b1b1;
+}
+.input[type="date"]:valid {
+  color: #222;
+}
+
+.form_right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.file_label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.file_box {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 170px;
+  max-height: 200px;
+  border: 3px dashed #7ca04b;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  transition: border 0.2s;
+  padding: 16px;
+  overflow: hidden;
+}
+
+.file_box:last-child {
+  margin-bottom: 0;
+}
+
+.file_preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+}
+.file_name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #7ca04b;
+  text-align: center;
+}
+.file_icon {
+  font-size: 2rem;
+}
+.file_text {
+  font-size: 0.9rem;
+  word-break: break-all;
+  max-width: 100%;
+}
+.file_plus {
+  font-size: 3rem;
+  color: #7ca04b;
+  font-weight: 700;
+}
+.file_input {
+  display: none;
+}
+.file_hint {
+  font-size: min(15px, calc(5px + 18 * ((100vw - 320px) / 1024)));
+  color: #444;
+  text-align: center;
+}
+
+.file_label:hover .file_box {
+  border-color: #5e7d3a;
+}
+.file_label:hover .file_plus,
+.file_label:hover .file_name {
+  color: #5e7d3a;
+}
+
+.form_footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 3vw;
+}
+
+.error {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 3vw;
+  font-size: min(14px, calc(5px + 18 * ((100vw - 320px) / 1024)));
+  text-align: center;
+}
+
+/* Модальные окна */
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1003;
+}
+.modalContent {
+  background-color: #f8f9f2;
+  border-radius: 16px;
+  border: 4px solid #7ca04b;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+}
+.modalButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 24px;
+}
+.modalButtons button {
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "Merriweather";
+  font-size: 1rem;
+  font-weight: 700;
+  background: #7ca04b;
+  color: #fff;
+  transition: background 0.2s;
+}
+.modalButtons button:last-child {
+  background: #e0e0e0;
+  color: #333;
+}
+.modalButtons button:first-child:hover {
+  background: #5e7d3a;
+}
+.modalButtons button:last-child:hover {
+  background: #bcbcbc;
+}
+
+.successModalContent {
+  background-color: rgba(159, 188, 78, 1);
+  border-radius: 30px;
+  padding: 40px;
+  min-width: max-content;
+  max-width: 500px;
+  text-align: center;
+  color: white;
+  animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.successModalContent h2 {
+  font-size: min(40px, calc(11px + 13 * ((100vw - 320px) / 1024)));
+  font-weight: 700;
+  margin: 0;
+  padding-left: 3px;
+}
+
+.successModalContent p {
+  font-size: min(40px, calc(11px + 13 * ((100vw - 320px) / 1024)));
+  font-weight: 700;
+  margin: 0;
+}
+
+.successModalContent button {
+  font-family: "Merriweather";
+  margin-top: 20px;
+  padding: 10px 40px;
+  font-size: min(40px, calc(8px + 8 * ((100vw - 320px) / 1024)));
+  font-weight: 900;
+  background-color: rgba(111, 139, 65, 1);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  color: white;
+}
+
+.successModalContent button:hover {
+  transform: scale(1.05);
+}
+
+.fixed_header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 8vw;
+  background: rgba(159, 188, 78, 1);
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(80, 100, 60, 0.07);
+}
+
+.back_btn {
+  font-family: "Merriweather";
+  position: static;
+  color: #fff;
+  font-size: min(40px, calc(8px + 16 * ((100vw - 320px) / 1024)));
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 4vw;
+}
+
+.backArrow {
+  font-size: 30px;
+  margin: 0 10px 3px 10px;
+  cursor: pointer;
+}
+
+.backText {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.backText:hover {
+  text-decoration: underline;
+}
+
+.user_name {
+  color: #fff;
+  font-size: min(40px, calc(8px + 16 * ((100vw - 320px) / 1024)));
+  font-weight: 400;
+  text-align: right;
+  padding: 4vw;
+  margin: 0;
+}
+
+/* Стилизация скроллбара для всех элементов */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 0;
+  display: block;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7ca04b;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5e7d3a;
+}
+
+/* Стилизация скроллбара для списка фотографий */
+.photo_list::-webkit-scrollbar {
+  width: 3px; /* Тонкий скроллбар только для списка фотографий */
+  display: block;
+}
+
+.photo_list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 1.5px;
+}
+
+.photo_list::-webkit-scrollbar-thumb {
+  background: #7ca04b;
+  border-radius: 1.5px;
+}
+
+.photo_list::-webkit-scrollbar-thumb:hover {
+  background: #5e7d3a;
+}
+
+/* Стилизация скроллбара для модальных окон */
+.modalContent::-webkit-scrollbar {
+  width: 4px;
+  display: block;
+}
+
+.modalContent::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 2px;
+}
+
+.modalContent::-webkit-scrollbar-thumb {
+  background: #7ca04b;
+  border-radius: 2px;
+}
+
+.modalContent::-webkit-scrollbar-thumb:hover {
+  background: #5e7d3a;
+}
+
+/* Стилизация скроллбара для карты */
+.map_block::-webkit-scrollbar {
+  width: 4px;
+  display: block;
+}
+
+.map_block::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 2px;
+}
+
+.map_block::-webkit-scrollbar-thumb {
+  background: #7ca04b;
+  border-radius: 2px;
+}
+
+.map_block::-webkit-scrollbar-thumb:hover {
+  background: #5e7d3a;
+}
+
+.upload_prompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: #7ca04b;
+  height: 100%;
+  justify-content: center;
+}
+
+.photo_list {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.photo_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: background-color 0.2s;
+  height: 50px; /* Фиксированная высота для каждой фотографии */
+  flex-shrink: 0; /* Запрещаем сжатие элементов */
+}
+
+.photo_item:hover {
+  background-color: #eeeeee;
+}
+
+.photo_preview {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.photo_thumbnail {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.photo_name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #333;
+}
+
+.remove_photo_btn {
+  background: none;
+  border: none;
+  color: #ff4444;
+  cursor: pointer;
+  padding: 4px 8px;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: all 0.2s;
+  margin-left: 8px;
+  flex-shrink: 0;
+}
+
+.remove_photo_btn:hover {
+  background-color: #ffeeee;
+  transform: scale(1.1);
+}
+
+/* Навигация внутри страницы */
+.step_navigation {
+  max-width: 500px;
+  margin: 40px auto 60px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  font-family: "Merriweather", serif;
+}
+
+/* Кругляшки */
+.steps_dots {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #d9d9d9;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot:hover {
+  transform: scale(1.2);
+  background: #d9d9d9;
+}
+
+.active_dot {
+  width: 28px;
+  height: 10px;
+  border-radius: 20px;
+  background: #6f8b41;
+  box-shadow: 0 0 8px rgba(111, 139, 65, 0.4);
+  cursor: default;
+}
+
+.active_dot:hover {
+  transform: none;
+  background: #6f8b41;
+}
+
+/* Контейнер для кнопок */
+.buttons_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+
+.nav_arrow {
+  position: absolute;
+  left: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 55px;
+  background: #d9d9d9;
+  border: 1.5px solid #e8e8e8;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0;
+  left: 90px;
+}
+
+.nav_arrow img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  display: block;
+}
+
+.nav_arrow:hover:not(.disabled) {
+  background: #f0f0f0;
+  border-color: #d0d0d0;
+  transform: scale(1.02);
+}
+
+.nav_arrow:active:not(.disabled) {
+  transform: scale(0.98);
+}
+
+.next_btn {
+  background: #6f8b41;
+  color: white;
+  border: none;
+  padding: 15px 36px;
+  border-radius: 15px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(111, 139, 65, 0.2);
+  margin: 0 auto;
+  font-family: "Merriweather", serif;
+}
+
+.next_btn:hover {
+  background: #5a7340;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(111, 139, 65, 0.3);
+}
+
+.next_btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .step_navigation {
+    margin: 30px auto 40px;
+    padding: 0 16px;
+    gap: 14px;
+  }
+
+  .steps_dots {
+    gap: 10px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .active_dot {
+    width: 24px;
+    height: 8px;
+  }
+
+  .nav_arrow {
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+  }
+
+  .nav_arrow img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .next_btn {
+    padding: 8px 24px;
+    font-size: 14px;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .step_navigation {
+    margin: 24px auto 32px;
+    padding: 0 12px;
+    gap: 12px;
+  }
+
+  .steps_dots {
+    gap: 8px;
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+  }
+
+  .active_dot {
+    width: 22px;
+    height: 7px;
+  }
+
+  .nav_arrow {
+    left: 5px;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .nav_arrow img {
+    width: 18px;
+    height: 18px;
+  }
+
+  .next_btn {
+    padding: 6px 20px;
+    font-size: 13px;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 1025px) {
+  .fixed_header {
+    height: 10vw;
+  }
+
+  .backArrow {
+    font-size: min(40px, calc(19px + 20 * ((100vw - 320px) / 1024)));
+    margin: 0 1vw 4px 1vw;
+  }
+
+  .hero_trees {
+    right: -66px;
+    bottom: -41px;
+  }
+}
+
+@media (max-width: 768px) {
+  .modalContent {
+    max-width: 300px;
+  }
+
+  .user_name {
+    font-size: min(40px, calc(10px + 16 * ((100vw - 320px) / 1024)));
+  }
+  .fixed_header {
+    height: 12vw;
+  }
+
+  .form_grid {
+    flex-direction: column;
+    gap: 3vw;
+  }
+
+  .form_left {
+    width: 75%;
+  }
+
+  .form_right {
+    width: 75%;
+    margin-bottom: 3vw;
+  }
+
+  .hero_overlay {
+    width: 65%;
+    height: 73%;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero_trees {
+    display: none;
+  }
+
+  .hero_text_overlay {
+    gap: 36vh;
+  }
+
+  .hero_section:first-child {
+    justify-content: left;
+  }
+
+  .hero_overlay {
+    background-position: left bottom;
+    left: 0;
+    bottom: 0;
+    height: 60%;
+    width: 77%;
+  }
+
+  .hero_title {
+    margin-right: 9vw;
+    padding: 3vw 5vw;
+  }
+
+  .hero_title_block {
+    width: auto;
+  }
+
+  .memory_label {
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    padding: 3.5vw 4vw;
+    font-size: min(43px, calc(16px + 11 * ((100vw - 320px) / 1024)));
+    width: 70vw;
+    text-align: center;
+  }
+}
+
+@media (max-width: 426px) {
+  .fixed_header {
+    height: 15vw;
+  }
+
+  .backArrow {
+    font-size: 7vw;
+    margin: 0 1vw 4px 3vw;
+  }
+
+  .file_hint {
+    font-size: min(15px, calc(8px + 18 * ((100vw - 320px) / 1024)));
+  }
+
+  .backText {
+    display: none;
+  }
+
+  .hero_section {
+    min-height: 122vw;
+  }
+
+  .hero_text_overlay {
+    gap: 45vw;
+  }
+
+  .memory_label {
+    width: 75vw;
+    padding: 4.5vw 5vw;
+    font-size: min(43px, calc(13px + 14 * ((100vw - 320px) / 1024)));
+  }
+
+  .textarea {
+    padding: 2vw;
+    font-size: min(22px, calc(11px + 10 * ((100vw - 320px) / 1024)));
+    font-family: "Merriweather";
+  }
+
+  .modalContent > p {
+    font-size: min(30px, calc(11px + 18 * ((100vw - 320px) / 1024)));
+  }
+
+  .modalContent {
+    max-width: 230px;
+  }
+
+  .modalButtons > button {
+    font-size: 0.7rem;
+    padding: 0.7rem 1.4rem;
+  }
+
+  .step_title {
+    margin-bottom: 3vw;
+  }
+
+  .form_left label {
+    font-size: min(22px, calc(12.5px + 20 * ((100vw - 320px) / 1024)));
+  }
+
+  .form_right > label {
+    font-size: min(22px, calc(12.5px + 20 * ((100vw - 320px) / 1024)));
+  }
+}

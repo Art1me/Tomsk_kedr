@@ -1,0 +1,42 @@
+.helpContainer {
+    font-family: 'Merriweather';
+    color: #000;
+    text-align: left;
+}
+
+.title {
+    font-size: min(40px, calc(12px + 10 * ((100vw - 320px) / 1024)));
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.listItem {
+    font-size: min(40px, calc(10px + 8 * ((100vw - 320px) / 1024)));
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.listItem::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #000;
+}
+
+.info {
+    font-size: min(40px, calc(10px + 8 * ((100vw - 320px) / 1024)));
+    margin: 0;
+    line-height: 1.5;
+}
+
+.highlight {
+    color: rgba(101, 140, 84, 1);
+} 

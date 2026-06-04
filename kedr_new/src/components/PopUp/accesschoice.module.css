@@ -1,0 +1,435 @@
+.accessModal {
+  height: 100vh !important;
+  width: 100vw !important;
+  position: fixed !important;
+  z-index: 9999 !important;
+  inset: 0 !important;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  pointer-events: auto !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+.accessModal__content {
+  padding: 20px !important;
+  border-radius: 12px !important;
+  height: 500px !important;
+  width: 800px !important;
+  background-color: #fffefe !important;
+  pointer-events: auto !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  max-height: 90vh !important;
+  overflow-y: auto !important;
+}
+
+.accessModal__content.slideIn {
+  animation: slideIn 0.3s ease-out forwards !important;
+}
+
+.accessModal__content.slideOut {
+  animation: slideOut 0.3s ease-in forwards !important;
+}
+
+.optionsContainer {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 50px !important;
+  margin-top: 100px !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.option {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 20px !important;
+  min-width: 160px !important;
+  z-index: 999 !important;
+}
+
+.optionText {
+  font-size: 18px !important;
+  color: #333 !important;
+  text-align: center !important;
+  margin: 0 !important;
+  font-weight: 500 !important;
+  line-height: 1.4 !important;
+  min-height: 50px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.imageButton {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 20px !important;
+  border: none !important;
+  background: #d9d9d9 !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  width: 150px !important;
+  height: 150px !important;
+  flex-shrink: 0 !important;
+}
+
+.imageButton:hover {
+  transform: translateY(-10px) !important;
+  background: #e8e8e8 !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.imageButton img {
+  width: 50px !important;
+  height: 50px !important;
+  object-fit: contain !important;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0 !important;
+    transform: translateY(-20px) !important;
+  }
+  to {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+  to {
+    opacity: 0 !important;
+    transform: translateY(20px) !important;
+  }
+}
+
+.title {
+  margin-top: 60px !important;
+  font-family: "Merriweather" !important;
+  font-size: min(25px, calc(13px + 18 * ((100vw - 320px) / 1024))) !important;
+  font-weight: 400 !important;
+  color: rgb(0, 0, 0) !important;
+  max-width: 100vw !important;
+  justify-content: center !important;
+  text-align: center !important;
+  width: 100% !important;
+  margin-bottom: 40px !important;
+}
+
+.text {
+  font-family: "Merriweather" !important;
+  display: flex !important;
+  font-weight: 400 !important;
+  min-height: min(30px, calc(13px + 18 * ((100vw - 320px) / 1024))) !important;
+  color: rgb(0, 0, 0) !important;
+  max-width: 50vw !important;
+  align-items: center !important;
+  min-width: 120px !important;
+  max-width: 180px !important;
+  text-align: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.close {
+  position: absolute !important;
+  top: 35px !important;
+  right: 45px !important;
+  width: 40px !important;
+  height: 40px !important;
+  cursor: pointer !important;
+  transition: opacity 0.3s ease !important;
+  color: black !important;
+  z-index: 10000 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.close:hover {
+  opacity: 0.7 !important;
+}
+
+@media (max-width: 930px) {
+  .accessModal__content {
+    height: auto !important;
+    min-height: 30vh !important;
+    max-height: 90vh !important;
+    width: 75vw !important;
+    border-radius: 3% !important;
+    padding: 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .imageButton {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 20px !important;
+    background: #e8e8e8 !important;
+    cursor: pointer !important;
+    width: 95px !important;
+    height: 95px !important;
+  }
+  .close {
+    position: absolute !important;
+    top: 25px !important;
+    right: 23px !important;
+    width: 20px !important;
+    height: 20px !important;
+    cursor: pointer !important;
+    transition: opacity 0.3s ease !important;
+    color: black !important;
+  }
+  .title {
+    margin-top: 30px !important;
+    font-size: min(18px, calc(15px + 18 * ((100vw - 320px) / 1024))) !important;
+    max-width: 100vw !important;
+  }
+  .optionsContainer {
+    margin-top: 80px !important;
+  }
+  .imageButton img {
+    width: 35px !important;
+    height: 35px !important;
+    object-fit: contain !important;
+  }
+  .text {
+    font-size: 14px !important;
+    min-height: min(
+      10px,
+      calc(13px + 18 * ((100vw - 320px) / 1024))
+    ) !important;
+    max-width: 50vw !important;
+    min-width: 10px !important;
+  }
+}
+
+@media (max-width: 776px) {
+  .accessModal__content {
+    height: auto !important;
+    min-height: 35vh !important;
+    max-height: 90vh !important;
+    width: 70vw !important;
+    border-radius: 3% !important;
+    padding: 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .imageButton {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 20px !important;
+    background: #e8e8e8 !important;
+    cursor: pointer !important;
+    width: 75px !important;
+    height: 75px !important;
+  }
+  .close {
+    position: absolute !important;
+    top: 25px !important;
+    right: 23px !important;
+    width: 20px !important;
+    height: 20px !important;
+    cursor: pointer !important;
+    transition: opacity 0.3s ease !important;
+    color: black !important;
+  }
+  .title {
+    margin-top: 10px !important;
+    font-size: min(18px, calc(15px + 18 * ((100vw - 320px) / 1024))) !important;
+    max-width: 100vw !important;
+  }
+  .optionsContainer {
+    margin-top: 39px !important;
+  }
+  .imageButton img {
+    width: 35px !important;
+    height: 35px !important;
+    object-fit: contain !important;
+  }
+  .text {
+    font-size: 16px !important;
+    min-height: min(
+      10px,
+      calc(13px + 18 * ((100vw - 320px) / 1024))
+    ) !important;
+    max-width: 50vw !important;
+    min-width: 10px !important;
+  }
+}
+
+@media (max-width: 609px) {
+  .accessModal__content {
+    height: auto !important;
+    min-height: 25vh !important;
+    max-height: 90vh !important;
+    width: 80vw !important;
+    border-radius: 4% !important;
+    padding: 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .optionsContainer {
+    flex-direction: column !important;
+    gap: 25px !important;
+    margin-top: 0 !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  .option {
+    flex-direction: row-reverse !important;
+    align-items: center !important;
+    gap: 15px !important;
+    min-width: auto !important;
+    width: 100% !important;
+    max-width: 280px !important;
+    justify-content: start !important;
+  }
+
+  .imageButton {
+    width: 60px !important;
+    height: 60px !important;
+    padding: 10px !important;
+    flex-shrink: 0 !important;
+    order: 2 !important;
+    background-color: white !important;
+    border: 2.5px solid #658c54 !important;
+  }
+
+  .imageButton img {
+    width: 25px !important;
+    height: 25px !important;
+  }
+
+  .text {
+    font-size: 14px !important;
+    min-height: auto !important;
+    margin: 0 !important;
+    order: 1 !important;
+    flex: 1 !important;
+    padding-right: 2px !important;
+  }
+
+  /* Для потомков important сделано чтобы игнорировать стили main которые перебивают эти ну и крч нужно это переделать, это костыль */
+
+  .imageButton:hover {
+    transform: none !important;
+    background: #d9d9d9 !important;
+    box-shadow: none !important;
+  }
+  .title {
+    text-align: center !important;
+    margin-bottom: 30px !important;
+    font-size: max(16px, calc(15px + 18 * ((100vw - 320px) / 1024))) !important;
+    font-weight: 500 !important;
+  }
+  .close {
+    position: absolute !important;
+    top: 17px !important;
+    right: 17px !important;
+    width: 18px !important;
+    height: 18px !important;
+    cursor: pointer !important;
+    transition: opacity 0.3s ease !important;
+    color: black !important;
+  }
+}
+
+@media (max-width: 324px) {
+  .accessModal__content {
+    height: auto !important;
+    min-height: 21vh !important;
+    max-height: 90vh !important;
+    width: 75vw !important;
+    border-radius: 4% !important;
+    padding: 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .optionsContainer {
+    flex-direction: column !important;
+    gap: 25px !important;
+    margin-top: 0 !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  .option {
+    flex-direction: row-reverse !important;
+    align-items: center !important;
+    gap: 10px !important;
+    min-width: auto !important;
+    width: 100% !important;
+    max-width: 280px !important;
+    justify-content: start !important;
+  }
+
+  .imageButton {
+    width: 40px !important;
+    height: 40px !important;
+    padding: 10px !important;
+    flex-shrink: 0 !important;
+    order: 2 !important;
+    background-color: white !important;
+    border: 2.5px solid #658c54 !important;
+  }
+
+  .imageButton img {
+    width: 21px !important;
+    height: 21px !important;
+  }
+
+  .text {
+    font-size: 14px !important;
+    min-height: auto !important;
+    margin: 0 !important;
+    order: 1 !important;
+    flex: 1 !important;
+    padding-right: 2px !important;
+    min-width: 100px !important;
+    max-width: 180px !important;
+  }
+
+  .imageButton:hover {
+    transform: none !important;
+    background: #d9d9d9 !important;
+    box-shadow: none !important;
+  }
+  .title {
+    text-align: center !important;
+    margin-bottom: 28px !important;
+    font-size: min(16px, calc(15px + 18 * ((100vw - 320px) / 1024))) !important;
+    font-weight: 500 !important;
+    max-width: 230px !important;
+    min-width: 135px !important;
+  }
+  .close {
+    position: absolute !important;
+    top: 10px !important;
+    right: 10px !important;
+    width: 13px !important;
+    height: 13px !important;
+    cursor: pointer !important;
+    transition: opacity 0.3s ease !important;
+    color: black !important;
+  }
+}

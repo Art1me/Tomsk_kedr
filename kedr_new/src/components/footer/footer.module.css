@@ -1,0 +1,182 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    box-sizing: border-box;
+  }
+  
+  .header {
+    font-size: min( 45px, calc(13px + 21 * ((100vw - 320px) / 1024)));
+    font-weight: 700;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 1vw;
+  }
+  
+  .header span{
+    color: rgba(111, 139, 65, 1);
+  }
+
+  .dividerBar {
+    width: 100%;
+    height: 12vh;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1;
+    gap: 40px;
+  }
+  
+  .leftblock, .rightblock {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  
+  .leftblock h2,
+  .rightblock h2 {
+    font-size: min( 45px, calc(12px + 28 * ((100vw - 320px) / 1024)));
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  
+  .person {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .image {
+    width: 20vw;
+    height: 50vh;
+    background-color: #d8d7d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #444;
+  }
+  
+  .info {
+    font-size: min(40px, calc(8px + 10 * ((100vw - 320px) / 1024)));
+    max-width: 10vw;
+    line-height: 1.4;
+  }
+  
+  .contacts {
+    /* margin-top: 5vh; */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .address {
+    margin-top: 20px;
+  }
+  
+  .verticalLine {
+    width: 1px;
+    background-color: #444;
+    height: 100%;
+    align-self: stretch;
+  }
+  
+  .contacts p{
+    font-size: min(40px, calc(8px + 10 * ((100vw - 320px) / 1024)));
+  }
+
+  .marquee {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+        overflow: hidden;
+    -webkit-mask-image: linear-gradient(
+        to right, 
+        transparent, 
+        black 20%, 
+        black 80%, 
+        transparent
+    );
+    mask-image: linear-gradient(
+        to right, 
+        transparent, 
+        black 20%, 
+        black 80%, 
+        transparent
+    );
+  }
+
+  .marqueeContent {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: max-content;
+    will-change: transform;
+    backface-visibility: hidden; /* Фикс для Safari */
+    transform-style: preserve-3d; /* Фикс для Safari */
+    animation: marqueeAnimation 25s linear infinite; /* Длительность можно настроить */
+  }
+
+  .partnerLogo {
+    height: 70%;
+    margin: 0 40px;
+    object-fit: contain;
+    filter: grayscale(0.2);
+    transition: filter 0.3s;
+    background: none;
+    flex-shrink: 0;
+  }
+
+/* Анимация для мобильных */
+
+@keyframes marqueeAnimation { /* Используем это имя анимации */
+    0% { transform: translateX(0) translateZ(0); } /* Добавлен translateZ(0) для лучшей производительности в Safari */
+    100% { transform: translateX(-50%) translateZ(0); } /* -50% корректно для удвоенного контента */
+}
+
+  .greenLine {
+    width: 100%;
+    height: 12vh;
+    background-color: rgba(101, 140, 84, 1);
+  }
+
+  /* Оптимизация для Safari */
+@supports (-webkit-touch-callout: none) {
+    .marqueeContent { /* Применение translateZ(0) для улучшения производительности анимации в Safari */
+        transform: translateZ(0);
+    }
+}
+
+  @media (max-width: 426px) {
+    .header{
+      margin-top: 5vw;
+      margin-bottom: 4vw;
+      font-weight: 600;
+      font-size: min(30px, calc(14px + 50 * ((100vw - 320px) / 1024)));
+    }
+
+    .dividerBar{
+      height: 10vh;
+    }
+    .greenLine{
+      height: 10vh;
+  }
+
+  .partnerLogo{
+    margin: 0 18px;
+  }
+}

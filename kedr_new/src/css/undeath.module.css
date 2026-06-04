@@ -1,0 +1,67 @@
+.container{
+    padding: 14% 17%;
+}
+
+.container header p{
+    margin: 0;
+    color: rgba(241, 242, 235, 1);
+    font-size: min(40px, calc(11px + 8 * ((100vw - 320px) / 1024)));
+}
+
+.form {
+    font-size: min(40px, calc(10px + 7 * ((100vw - 320px) / 1024)));
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    margin: 13% auto;
+    gap: 4px;
+    width: 85%;
+    color: white;
+    font-weight: 400;
+  }
+  
+.lable{
+    margin-left: 4%;
+}
+
+.lable2{
+    margin-top: 4%;
+    margin-left: 4%;
+}
+
+.input::placeholder{
+  font-size: min(40px, calc(10px + 7 * ((100vw - 320px) / 1024)));
+  color: rgba(177, 177, 177, 1);
+  font-weight: 200;
+}
+
+.input {
+  font-style: italic;
+  padding: 10px;
+  /* font-size: 14px; */
+  border: none;
+  border-radius: 11px;
+}
+
+/* кнопка входа */
+.button {
+  font-family: 'Merriweather';
+  background-color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 50%;
+}
+
+.button:hover {
+  background-color: #f0f0f0;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

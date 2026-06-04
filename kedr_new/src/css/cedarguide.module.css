@@ -1,0 +1,668 @@
+.con {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  overflow: visible;
+  width: 100%;
+}
+
+.title {
+  font-family: "Merriweather";
+  font-weight: 400;
+  font-size: 64px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  text-align: center;
+  width: 100%;
+}
+
+.card_title {
+  font-family: "Merriweather";
+  font-weight: 400;
+  font-size: 48px;
+  color: #6f8b41;
+  margin-bottom: 50px;
+}
+
+.main_text {
+  font-family: "Merriweather";
+  font-weight: 400;
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+.text_wrapper {
+  width: 100%;
+  max-width: 1015px;
+  text-align: center;
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.text_wrapper p {
+  text-align: left;
+  max-width: 1015px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.text_wrapper2 {
+  width: 100%;
+  max-width: 670px;
+  text-align: left;
+  position: relative;
+}
+
+.main_img {
+  border-radius: 20px;
+  max-width: 65vw;
+  width: 100%;
+  height: 588px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  display: block;
+  margin: 0 auto;
+  object-fit: cover;
+}
+
+.card_img {
+  border-radius: 20px;
+  max-width: 571px;
+  width: 100%;
+  height: 400px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+}
+
+.mainHeader {
+  background-color: #9fbc4e;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.headerContent {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 40px;
+  height: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rightButtons {
+  display: flex;
+  gap: 20px;
+}
+
+.headerButton {
+  font-family: "Merriweather";
+  background: #9fbc4e;
+  border: 2px solid white;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  letter-spacing: 0.5px;
+  min-width: 140px;
+  text-align: center;
+}
+
+.headerButton:hover {
+  background: white;
+  color: #658c54;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.back {
+  display: flex;
+  background: none;
+  border: 2px solid white;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.back:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.backimg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 12px;
+}
+
+.card_container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-items: center;
+  max-width: 2200px;
+  margin-bottom: 155px;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 40px;
+  position: relative;
+  overflow: visible;
+  width: 90%;
+}
+
+.arrows_wrapper {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  overflow: visible;
+}
+
+/* По умолчанию скрыты */
+.arrow1,
+.arrow2,
+.arrow3 {
+  display: none;
+}
+
+/* Бургер-меню */
+.burger_button {
+  position: absolute;
+  top: 50%;
+  left: 4vw;
+  transform: translateY(-50%);
+  font-size: clamp(10px, 9.5vw, 40px);
+  cursor: pointer;
+  z-index: 1000;
+  display: none;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.burger_button.burger_active {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.burger_modal {
+  position: fixed;
+  top: 85px;
+  left: 0;
+  width: 14vw;
+  height: 100vh;
+  background-color: #9fbc4e;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 5px;
+  gap: 20px;
+  align-items: center;
+  border-right: 2px solid #6b8e47;
+}
+
+.burger_modal_button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.burger_modal_button svg {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.2s;
+}
+
+.burger_modal_button:hover svg {
+  transform: scale(1.2);
+}
+
+/* 1440p */
+@media (min-width: 1440px) and (max-width: 1699px) {
+  .arrow1 {
+    display: block;
+    position: absolute;
+    top: 2vw;
+    width: 700px;
+  }
+  .arrow2 {
+    display: block;
+    position: absolute;
+    width: 785px;
+    top: 4vw;
+    left: 40vw;
+  }
+  .arrow3 {
+    display: block;
+    position: absolute;
+    top: 5vw;
+    left: 42vw;
+    width: 120px;
+  }
+}
+
+/* Full HD (1920x1080) */
+@media (min-width: 1700px) and (max-width: 1999px) {
+  .arrow1 {
+    display: block;
+    position: absolute;
+    top: 2vw;
+    width: 800px;
+  }
+  .arrow2 {
+    display: block;
+    position: absolute;
+    width: 900px;
+    top: 4vw;
+    left: 40vw;
+  }
+  .arrow3 {
+    display: block;
+    position: absolute;
+    top: 4vw;
+    left: 40vw;
+    width: 170px;
+  }
+}
+
+/* 2K (2560x1440) и больше */
+@media (min-width: 2000px) {
+  .con {
+    max-width: 2400px;
+  }
+
+  .title {
+    font-size: 96px;
+    margin-top: 45px;
+    margin-bottom: 45px;
+  }
+
+  .card_title {
+    font-size: 72px;
+    margin-bottom: 75px;
+  }
+
+  .main_text {
+    font-size: 38px;
+    margin-top: 30px;
+    line-height: 1.4;
+  }
+  .text_wrapper .main_text {
+    font-size: 46px;
+    max-width: 1600px;
+    padding-top: 20px;
+  }
+  .main_img {
+    max-width: 70vw;
+    width: 70vw;
+    height: 850px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .card_img {
+    max-width: 850px;
+    width: 100%;
+    height: 600px;
+  }
+
+  .text_wrapper {
+    max-width: 1600px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .text_wrapper p {
+    max-width: 1400px;
+    text-align: center;
+    font-size: 36px;
+  }
+
+  .text_wrapper2 {
+    max-width: 1100px;
+  }
+
+  .card_container {
+    margin-bottom: 250px;
+    gap: 80px;
+    width: 85%;
+  }
+
+  .headerContent {
+    max-width: 2400px;
+    padding: 0 80px;
+    height: 160px;
+  }
+
+  .headerButton {
+    padding: 18px 40px;
+    font-size: 24px;
+    min-width: 300px;
+    border-width: 4px;
+    border-radius: 10px;
+  }
+
+  .back {
+    width: 80px;
+    height: 80px;
+    border-width: 2px;
+    border-radius: 10px;
+  }
+
+  .backimg {
+    padding: 18px;
+  }
+
+  .arrow1 {
+    display: block;
+    position: absolute;
+    top: 2vw;
+    left: 3vw;
+    width: 1200px;
+  }
+  .arrow2 {
+    display: block;
+    position: absolute;
+    width: 1300px;
+    top: -9vw;
+    left: 37vw;
+  }
+  .arrow3 {
+    display: block;
+    position: absolute;
+    top: -10vw;
+    left: 37vw;
+    width: 250px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .text_wrapper2 {
+    max-width: 640px;
+  }
+  .card_img {
+    max-width: 500px;
+    height: 350px;
+  }
+  .card_container {
+    gap: 30px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .main_text {
+    font-size: 22px;
+  }
+  .card_title {
+    font-size: 44px;
+  }
+  .arrow2 {
+    top: -10vw;
+    left: 36vw;
+  }
+  .arrow3 {
+    top: -9vw;
+    left: 39vw;
+    width: 140px;
+  }
+}
+
+/* Планшеты (1024px и меньше) */
+@media (max-width: 1024px) {
+  .title {
+    font-size: 42px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .card_title {
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+
+  .main_text {
+    font-size: 18px;
+    margin-top: 15px;
+  }
+
+  .main_img {
+    height: auto;
+    width: 75vw;
+    border-radius: 15px;
+    margin: 0 auto;
+  }
+
+  .card_img {
+    max-width: 400px;
+    height: 280px;
+  }
+
+  .text_wrapper {
+    max-width: 700px;
+    padding: 0 30px;
+    box-sizing: border-box;
+  }
+
+  .text_wrapper p {
+    max-width: 700px;
+  }
+
+  .text_wrapper2 {
+    max-width: 450px;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .card_container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 80px;
+    gap: 30px;
+    width: 90%;
+  }
+
+  .con {
+    margin-bottom: 20px;
+    padding: 0 30px;
+    box-sizing: border-box;
+  }
+
+  .headerContent {
+    padding: 0 30px;
+    height: 75px;
+  }
+
+  .headerButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    min-width: 120px;
+    border-radius: 6px;
+  }
+
+  .back {
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+  }
+}
+
+/* Планшеты (768px и меньше) */
+@media (max-width: 768px) {
+  .title {
+    font-size: 32px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .card_title {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+
+  .main_text {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .main_img {
+    max-width: 100%;
+    width: 100%;
+    height: 250px;
+    border-radius: 12px;
+    margin: 0 auto;
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  }
+
+  .card_img {
+    display: none;
+  }
+
+  .card_container {
+    grid-template-columns: 1fr;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    gap: 20px;
+    width: 90%;
+  }
+
+  .text_wrapper {
+    max-width: 100%;
+    padding: 0 25px;
+    box-sizing: border-box;
+  }
+
+  .text_wrapper2 {
+    max-width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .con {
+    padding: 0 25px;
+    box-sizing: border-box;
+  }
+
+  .headerContent {
+    height: 70px;
+    padding: 12px 20px;
+  }
+
+  .headerButton {
+    padding: 8px 16px;
+    font-size: 14px;
+    min-width: auto;
+    border-radius: 6px;
+  }
+
+  .rightButtons {
+    gap: 10px;
+  }
+
+  .back {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+/* Мобильные (480px и меньше) */
+@media (max-width: 480px) {
+  .title {
+    font-size: 26px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .card_title {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+
+  .main_text {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  .main_img {
+    height: 280px;
+    border-radius: 10px;
+    width: 100%;
+    margin: 0 auto;
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  }
+
+  .card_container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    gap: 15px;
+    width: 95%;
+  }
+
+  .con {
+    padding: 0 15px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+  }
+
+  .text_wrapper {
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .text_wrapper2 {
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+
+  /* Показываем бургер */
+  .burger_button {
+    display: block;
+  }
+
+  /* Скрываем кнопку назад и правые кнопки */
+  .back {
+    display: none;
+  }
+
+  .rightButtons {
+    display: none;
+  }
+
+  /* Хедер */
+  .headerContent {
+    justify-content: flex-end;
+    padding: 10px 15px;
+    height: 60px;
+  }
+
+  .burger_modal {
+    top: 60px;
+    width: 70px;
+  }
+
+  .burger_modal_button svg {
+    width: 28px;
+    height: 28px;
+  }
+}

@@ -1,0 +1,288 @@
+.container{
+    width: 100%;
+    font-size: min(45px, calc(12px + 28 * ((100vw - 320px) / 1024)));
+    max-width: 3000px;
+    margin-bottom: 7%;
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    flex-wrap: wrap;
+    /* /* border: 2px solid magenta; */
+}
+
+.LeftBlock{
+    align-items: center;
+    margin-left: 6vw;
+    margin-top: 20vh;
+    margin-bottom: 25.8vh;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 30%;
+    background-color: rgba(241, 242, 235, 0.73);
+    border-radius: 45px;
+}
+
+.RightBlock{
+    align-items: center;
+    /* border: 2px solid blueviolet; */
+    width: 53%;
+    margin-right: 6vh;
+}
+
+.RightBlock > div{
+    display: flex;
+    flex-direction: column;
+    gap: 7.3vh;
+    width: 37vw;
+    margin: auto;
+    margin-top: 13vh;
+    align-items: center;
+}
+
+.CountReg{
+    font-size: min( 45px, calc(13px + 18 * ((100vw - 320px) / 1024)));
+    max-width: min-content;
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 0;
+    font-weight: 600;
+}
+
+.CounterTrees{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    margin: 2vh 0;
+    padding-bottom: 3.1vh;
+    font-size: min(60px, calc(27px + 18 * ((100vw - 320px) / 1024)));
+    font-weight: 700;
+}
+
+.CounterTrees p{
+    margin: 0;
+}
+
+.CounterTrees p:first-child{
+    letter-spacing: 0.06em;
+    margin-right: 1vw;
+    font-weight: 900;
+    color: rgba(111, 139, 65, 1);
+}
+
+.title{
+    margin: 0;
+    /* border: 2px solid yellow; */
+    font-size: min(60px, calc(22px + 30 * ((100vw - 320px) / 1024)));
+    text-align: left;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.memoryOf{
+    margin: 0;
+    text-align: left;
+    font-size: min(34px, calc(10px + 18 * ((100vw - 320px) / 1024)));
+}
+
+.memoryOf span{
+    color: rgba(111, 139, 65, 1);
+}
+
+.button{
+    font-family: 'Merriweather';
+    padding: 2.7vh;
+    border: 0.2vw solid black;
+    width: 100%;
+    max-width: 690px;
+    background-color: rgba(28, 28, 28, 0);
+    cursor: pointer;
+    align-items: center;
+    font-size: min(30px, calc(10px + 18 * ((100vw - 320px) / 1024)));
+    color: black;
+}
+
+
+
+@media (max-width: 2560px){
+    .container{
+        height: 47vw;
+        width:100%;
+    }
+
+    .LeftBlock{
+        margin-top: 15vw;
+    }
+    
+    .CounterTrees{
+        margin: 1.8vw 0;
+        /* padding-bottom: 3vw; */
+    }
+
+    .RightBlock{
+        margin-right: 2vw;
+    }
+    
+    .RightBlock > div{
+        gap: 5vw;
+        margin-top: 12vw;
+    }
+
+    .title{
+    font-size: max(70px, calc(22px + 25 * ((100vw - 320px) / 1024)));
+
+    }
+
+}
+
+
+
+
+
+@media (max-width: 1250px){
+    .container{
+        height: 47vw;
+    }
+
+    .LeftBlock{
+        margin-top: 15vw;
+    }
+    
+    .CounterTrees{
+        margin: 1.8vw 0;
+        /* padding-bottom: 3vw; */
+    }
+
+    .RightBlock{
+        margin-right: 2vw;
+    }
+    
+    .RightBlock > div{
+        gap: 5vw;
+        margin-top: 12vw;
+    }
+
+    .title{
+    font-size: min(60px, calc(22px + 25 * ((100vw - 320px) / 1024)));
+
+    }
+
+}
+
+@media (max-width: 820px) {
+    .RightBlock > div{
+        margin-top: 11vw;
+    }
+    .title{
+        font-size: min(60px, calc(20px + 21 * ((100vw - 320px) / 1024)));
+    }
+    .LeftBlock{
+        width: 33%;
+        margin-left: 5vw;
+        border-radius: 35px;
+    }
+    .CounterTrees{
+        padding-bottom: 1vw;
+        font-size: min(50px, calc(22px + 18 * ((100vw - 320px) / 1024)));
+    }
+    .CountReg{
+        font-size: min(40px, calc(12px + 18 * ((100vw - 320px) / 1024)));
+    }
+}
+
+@media (max-width: 640px) {
+    .LeftBlock{
+        border-radius: 25px;
+    }
+    .CounterTrees{
+        padding-bottom: 0.5vw;
+        font-size: min(50px, calc(20px + 18 * ((100vw - 320px) / 1024)));
+    }
+    .RightBlock > div{
+        gap: 3.2vw;
+    }
+    .title{
+        font-size: min(60px, calc(15px + 23 * ((100vw - 320px) / 1024)));
+    }
+    .button{
+        padding: 7px;
+        font-size: min(30px, calc(7px + 18 * ((100vw - 320px) / 1024)));
+    }
+    .memoryOf{
+        font-size: min(30px, calc(8px + 18 * ((100vw - 320px) / 1024)));
+    }
+}
+
+@media (max-width: 480px) {
+    .CounterTrees {
+        font-size: min(50px, calc(16px + 20 * ((100vw - 320px) / 1024)));
+    }
+    .CountReg{
+        font-size: min(30px, calc(10px + 18 * ((100vw - 320px) / 1024)));
+    }
+    .LeftBlock{
+        border-radius: 20px;
+    }
+}
+
+@media (max-width: 426px) {
+
+    .container{
+        flex-direction: column-reverse;
+        height: 100%;
+        align-content: center;
+        align-items: center;
+        justify-content: flex-end;
+        margin: 15vw 0;
+    }
+    .RightBlock{
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .RightBlock > div {
+        margin: 0;
+        /* margin-top: 6vh; */
+        width: 78%;
+        gap: 8vw;
+    }
+    .LeftBlock{
+        margin: 0;
+        background-color: rgba(241, 242, 235, 0);
+        width: 79%;
+        margin-top: 10vw;
+        gap: 5vw;
+    }
+
+    .title{
+        font-size: min(60px, calc(29px + 95 * ((100vw - 320px) / 1024)));
+        font-weight: 400;
+    }
+
+    .button{
+        font-size: min(30px, calc(12px + 35 * ((100vw - 320px) / 1024)));
+        width: 100%;
+        padding: 4vw 0;
+    }
+
+    .memoryOf{
+        font-size: min(30px, calc(12px + 35 * ((100vw - 320px) / 1024)));
+        width: 100%;
+    }
+    
+    .CountReg{
+        width: 100%;
+        font-size: min(30px, calc(16px + 50 * ((100vw - 320px) / 1024)));
+        text-align: center;
+        max-width: 100%;
+        font-weight: 300;
+        margin: 0;
+    }
+
+    .CounterTrees{
+        font-size: min(30px, calc(18px + 50 * ((100vw - 320px) / 1024)));
+        margin: 0;
+        font-weight: 600;
+    }
+}

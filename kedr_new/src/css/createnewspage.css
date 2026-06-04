@@ -1,0 +1,367 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap");
+
+/* ===== СТИЛИ ТОЛЬКО ДЛЯ ФОРМЫ СОЗДАНИЯ НОВОСТИ ===== */
+
+.main-content {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: "Merriweather", serif;
+}
+
+.page-title {
+  font-size: 36px;
+  margin-bottom: 40px;
+  text-align: left;
+  font-weight: 400;
+  font-family: "Merriweather", serif;
+  color: #333;
+}
+
+/* Форма */
+.create-news-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 30px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: "Merriweather", serif;
+}
+
+.form-group label {
+  font-size: 18px;
+  color: #333;
+  font-weight: 400;
+  margin-left: 5px;
+  font-family: "Merriweather", serif;
+}
+
+.form-input,
+.form-textarea {
+  font-family: "Merriweather", serif;
+  padding: 15px 20px;
+  border: 2px solid #6f8b41;
+  border-radius: 25px;
+  font-size: 16px;
+  background-color: white;
+  transition: all 0.3s ease;
+  outline: none;
+  width: 100%;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 200px;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+  font-style: italic;
+  font-family: "Merriweather", serif;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  box-shadow: 0 0 0 3px rgba(111, 139, 65, 0.2);
+  border-color: #6f8b41;
+}
+
+.char-counter {
+  text-align: right;
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+.required {
+  color: #d32f2f;
+  font-size: 1.2rem;
+}
+
+.image-count {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: normal;
+  margin-left: auto;
+}
+
+/* Загрузка изображений */
+.image-upload-area {
+  border: 3px dashed #6f8b41;
+  border-radius: 25px;
+  padding: 2rem;
+  text-align: center;
+  background: #f9f9f9;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.image-upload-area:hover {
+  border-color: #5e7737;
+  background: #f0f0f0;
+}
+
+.image-input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.image-upload-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.upload-icon {
+  font-size: 3rem;
+  filter: grayscale(50%);
+  transition: all 0.3s ease;
+}
+
+.image-upload-area:hover .upload-icon {
+  filter: grayscale(0);
+  transform: scale(1.1);
+}
+
+.upload-text {
+  font-weight: 600;
+  color: #333;
+}
+
+.upload-hint {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Превью */
+.image-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.image-preview-item {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.image-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image-preview-item:hover .image-preview {
+  transform: scale(1.1);
+}
+
+.remove-image-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  color: #d32f2f;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.remove-image-btn:hover {
+  background: #d32f2f;
+  color: white;
+  transform: scale(1.1);
+}
+
+.image-number {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+
+/* Кнопка отправки */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.submit-btn {
+  font-family: "Merriweather", serif;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 15px 40px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 25px;
+  background-color: #6f8b41;
+  color: white;
+  min-width: 200px;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background-color: #5e7737;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(111, 139, 65, 0.3);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #ccc;
+}
+
+/* Прогресс бар */
+.progress-bar-container {
+  width: 100%;
+  height: 20px;
+  background: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #6f8b41, #5e7737);
+  color: white;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.3s ease;
+  border-radius: 10px;
+}
+
+/* Общие стили */
+button:focus,
+button:active {
+  outline: none;
+  border: none;
+}
+
+.upload-icon-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.image-upload-area:hover .upload-icon-img {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
+
+@media (max-width: 1024px) {
+  .main-content {
+    padding: 30px;
+  }
+  .page-title {
+    font-size: 32px;
+  }
+  .upload-icon-img {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 20px;
+  }
+  .page-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+  .image-preview-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+  .form-input,
+  .form-textarea {
+    font-size: 15px;
+    padding: 12px 15px;
+  }
+  .upload-icon-img {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 15px;
+  }
+  .page-title {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+  .image-upload-area {
+    padding: 1rem;
+  }
+  .upload-icon {
+    font-size: 2rem;
+  }
+  .image-preview-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 8px;
+  }
+  .form-actions {
+    justify-content: center;
+  }
+  .submit-btn {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+    min-width: auto;
+  }
+  .form-group label {
+    font-size: 16px;
+  }
+  .form-input,
+  .form-textarea {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+}

@@ -1,0 +1,359 @@
+.mapcon{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    max-width: 1800px;
+    margin: auto;
+}
+
+.custom_popup {
+  background:
+    url('trees-popup-onMap.png') left bottom no-repeat,
+    #F1F2EB;
+  background-size: auto 40%, auto;
+  background-repeat: no-repeat, no-repeat;
+  background-position: left bottom, left top;
+  border-radius: 32px;
+  padding: 36px 46px;
+  min-width: 485px;
+  max-width: 735px;
+  min-height: 220px;
+  max-height: 57vh;
+  position: relative;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.popup_close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    filter: brightness(0) saturate(100%);
+    z-index: 999;
+}
+.popup_close > img {
+    width: 25px;
+    height: 25px;
+}
+
+/* Header */
+.popup_header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.popup_title {
+  flex: 2;
+  text-align: center;
+  font-size: 1.45rem;
+  font-weight: 600;
+  font-family: 'Merriweather', serif;
+  margin: 0;
+}
+
+/* Информационные блоки */
+.popup_info_block {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 1px;
+}
+.popup_label {
+  color: #7BAA6B;
+  font-weight: 700;
+  font-family: 'Merriweather', serif;
+  margin-right: 8px;
+  white-space: nowrap;
+}
+.popup_registered,
+.popup_dedicated {
+  margin: 0 0 6px 0;
+  font-size: 1rem;
+  font-family: 'Merriweather', serif;
+}
+.popup_desc_label {
+  font-size: 1rem;
+  font-family: 'Merriweather', serif;
+  color: #7BAA6B;
+  font-weight: 700;
+}
+
+/* Flex-контейнер для описания и фото */
+.popup_content {
+  flex: 1 1 auto;
+  overflow: hidden;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.popup_main_flex {
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: 250px;
+  display: flex;
+  gap: 32px;
+}
+.popup_left_desc {
+  flex: 0 0 55%;
+  max-width: 55%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.popup_desc {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  max-height: 100%;
+  font-size: 1rem;
+  font-family: 'Merriweather', serif;
+  padding-right: 10px;
+  margin: 0;
+}
+.popup_desc::-webkit-scrollbar {
+  width: 6px;
+}
+.popup_desc::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+}
+.popup_desc::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+.popup_right_photo {
+  flex: 0 0 45%;
+  max-width: 45%;
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: hidden;
+}
+.popup_photo {
+  width: auto;
+  max-width: 235px;
+  height: 100%;
+  max-height: 235px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #e5e5e5;
+}
+.popup_photo_placeholder {
+  max-height: 235px;
+  width: 100%;
+  max-width: 235px;
+  border-radius: 12px;
+  background: #e5e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.18rem;
+  font-family: 'Merriweather', serif;
+  color: #222;
+}
+
+/* Footer */
+.popup_footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 30px;
+  font-size: 1rem;
+  font-family: 'Merriweather', serif;
+}
+.popup_footer_left {
+  color: #222;
+}
+.popup_footer_right {
+  color: #222;
+}
+
+.popup_full_width {
+  flex: 1 1 100% !important;
+  max-width: 100% !important;
+}
+
+/* --- Стили для галереи фото в попапе --- */
+.photo_gallery_block {
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+}
+.photo_gallery_imgwrap {
+  width: 100%;
+  height: 260px;
+  background: #e5e5e5;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.photo_gallery_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #e5e5e5;
+}
+.photo_gallery_nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 2px;
+}
+.photo_gallery_arrow {
+  background: none;
+  border: none;
+  color: #7BAA6B;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0 8px;
+  border-radius: 50%;
+  transition: background 0.15s;
+  line-height: 1;
+}
+.photo_gallery_arrow:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.photo_gallery_arrow:hover:not(:disabled) {
+  background: #eaf5e3;
+}
+.photo_gallery_counter {
+  font-size: 1.1rem;
+  color: #222;
+  min-width: 38px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .custom_popup{
+    padding: 20px 30px;
+    min-width: 0px;
+    min-height: 0px;
+    min-width: 220px;
+    max-width: 260px;
+
+  }
+
+  .popup_footer{
+    font-size: 0.9rem;
+  }
+
+  .popup_main_flex{
+    gap: 14px;
+  }
+
+  /* .popup_left_desc{
+    max-width: 50%;
+  } */
+
+  .photo_gallery_imgwrap{
+    width: 90%;
+  }
+
+  .photo_gallery_nav{
+    gap: 6px;
+  }
+
+  .photo_gallery_arrow{
+    font-size: 1.5rem;
+  }
+
+  .popup_title{
+    font-size: 1.2rem;
+  }
+
+  .popup_registered, .popup_dedicated{
+    font-size: 0.9rem;
+  }
+
+  .popup_desc_label{
+    font-size: 0.9rem;
+  }
+  
+  .popup_desc{
+    font-size: 0.8rem;
+    padding-right: 0px;
+  }
+
+  .popup_footer{
+    font-size: 0.8rem;
+  }
+  
+  .popup_footer{
+    gap: 10px;
+  }
+
+  .photo_gallery_counter{
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 426px) {
+  .custom_popup{
+    max-height: 64vh;
+  }
+
+  .popup_main_flex{
+    flex-direction: column;
+    align-items: center;
+    max-height: min-content;
+  }
+
+  .popup_left_desc{
+    max-width: 100%;
+    max-height: 20vw;
+  }
+  
+  .photo_gallery_block{
+    width: 40vw;
+    height: 24vh;
+  }
+
+  .photo_gallery_imgwrap{
+    height: 100%;
+  }
+
+  .popup_header{
+    margin-bottom: 2vw;
+  }
+
+  .popup_footer{
+    margin-top: 3vw;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1vw;
+  }
+
+  .popup_dedicated{
+    font-size: 0.8rem;
+  }
+
+  .popup_registered{
+    font-size: 0.8rem;
+  }
+
+  .popup_desc_label{
+    font-size: 0.8rem;
+  }
+
+  .popup_close{
+    top: 15px;
+    right: 15px;
+  }
+}

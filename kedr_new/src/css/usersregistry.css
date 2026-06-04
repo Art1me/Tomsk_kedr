@@ -1,0 +1,345 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Merriweather", serif;
+  background-color: #f4f4f4;
+}
+
+.admin-panel-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Верхняя панель */
+.header {
+  background: linear-gradient(to bottom, #7d9652, #708644);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.header-title {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.tree-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 0 0;
+  display: inline-block;
+}
+
+/* Основной контейнер */
+.main-wrapper {
+  display: flex;
+  flex: 1;
+}
+
+/* Сайдбар */
+.sidebar {
+  width: 280px;
+  background-color: #f3f3f0;
+  padding-top: 30px;
+  padding-left: 20px;
+  flex-shrink: 0;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 15px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 400;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.sidebar-item:hover {
+  background-color: #e8e8e4;
+}
+
+.sidebar-item.active {
+  background-color: #e8e8e4;
+}
+
+/* Контент */
+.content {
+  flex: 1;
+  padding: 30px;
+  background-color: #f3f3f0;
+}
+
+.page-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #1a1a1a;
+}
+
+/* Поиск */
+.search-container {
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 20px;
+  border: 2px solid #8fa862;
+  border-radius: 30px;
+  font-family: "Merriweather", serif;
+  font-size: 14px;
+  background-color: transparent;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #888;
+}
+
+/* Таблица */
+.table-container {
+  background: white;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1.5fr 1fr;
+  background: #f0f0eb;
+  padding: 15px 20px;
+  font-size: 13px;
+  color: #555;
+  font-weight: 700;
+}
+
+.table-body {
+  background: white;
+}
+
+.user-row {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1.5fr 1fr;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e0e0e0;
+  align-items: center;
+}
+
+.user-row:last-child {
+  border-bottom: none;
+}
+
+.user-row:hover {
+  background: #fafaf8;
+}
+
+/* Колонка ФИО */
+.col-fio {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #ddd;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-name {
+  font-size: 16px;
+  color: #1a1a1a;
+}
+
+.user-reg-date {
+  font-size: 11px;
+  color: #888;
+  margin-top: 2px;
+}
+
+/* Колонка Контакты */
+.col-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.contact-item {
+  font-size: 13px;
+  color: #555;
+}
+
+/* Колонка Компания */
+.col-company {
+  display: flex;
+  align-items: center;
+}
+
+.company-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.company-icon {
+  width: 24px;
+  height: 24px;
+  background: #e53935;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.company-tag span {
+  font-size: 13px;
+  color: #333;
+}
+
+/* Колонка Действия */
+.col-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-icon {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 8px;
+  background: #8fa862;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: background 0.2s;
+}
+
+.btn-icon:hover {
+  background: #7a964d;
+}
+
+/* Пагинация */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 30px 0;
+}
+
+.page-number,
+.page-arrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #8fa862;
+  background: transparent;
+  color: #333;
+  font-family: "Merriweather", serif;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.page-number:hover,
+.page-arrow:hover {
+  background: #8fa862;
+  color: white;
+}
+
+.page-number.active {
+  background: #8fa862;
+  color: white;
+}
+
+.page-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.dots {
+  color: #888;
+}
+.action-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 6px;
+  background-color: #8fa862;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.action-btn:hover {
+  background-color: #7a964d;
+}
+
+.action-btn:first-child {
+  background-color: #c4c4c4;
+}
+
+.action-btn:first-child:hover {
+  background-color: #b0b0b0;
+}
+/* Адаптив */
+@media (max-width: 900px) {
+  .main-wrapper {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    overflow-x: auto;
+  }
+  .sidebar-item {
+    white-space: nowrap;
+  }
+  .table-header,
+  .user-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .col-fio,
+  .col-contacts,
+  .col-company,
+  .col-actions {
+    padding: 5px 0;
+  }
+  .col-actions {
+    justify-content: flex-start;
+  }
+}

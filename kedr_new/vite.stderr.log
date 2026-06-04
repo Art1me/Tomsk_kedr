@@ -1,0 +1,8 @@
+[33m[vite:css][postcss] @import must precede all other statements (besides @charset or empty @layer)
+322 |  
+323 |  /* Подключение шрифта Merriweather */
+324 |  @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap");
+    |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+325 |  [39m
+[2m21:52:50[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mОшибка загрузки кедров: TypeError: NetworkError when attempting to fetch resource.
+[2m21:53:59[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mОшибка загрузки кедров: TypeError: NetworkError when attempting to fetch resource.
