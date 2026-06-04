@@ -13,16 +13,23 @@ def env_list(name, default=''):
     return [item.strip() for item in raw.split(',') if item.strip()]
 
 
+def env_bool(name, default=False):
+    raw = os.getenv(name)
+    if raw is None:
+        return default
+    return raw.strip().lower() in {'1', 'true', 'yes', 'on'}
+
+
 SECRET_KEY = os.getenv(
     'DJANGO_SECRET_KEY',
     'django-insecure-ys^r=vca2j)oa$2u-zl*oz*aeyz4k=+*831%!jx^$z&5d%l-6c',
 )
-DEBUG = True
+DEBUG = env_bool('DJANGO_DEBUG', True)
 
-ALLOWED_HOSTS = [
-    '127.0.0.1',   # Доступ по IP-адресу
-    'localhost',   # Доступ по localhost
-]
+_default_allowed_hosts = (
+    '127.0.0.1,localhost,tomskstolicakedra.red.tpu.ru'
+)
+ALLOWED_HOSTS = env_list('DJANGO_ALLOWED_HOSTS', _default_allowed_hosts)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -92,6 +99,7 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
@@ -105,11 +113,11 @@ _default_cors_origins = (
     'http://localhost:5173,http://127.0.0.1:5173,'
     'http://localhost:5174,http://127.0.0.1:5174'
     if DEBUG
-    else ''
+    else 'http://tomskstolicakedra.red.tpu.ru,https://tomskstolicakedra.red.tpu.ru'
 )
 _dev_cors_origins = env_list('DJANGO_DEV_CORS_ALLOWED_ORIGINS', _default_cors_origins)
-_configured_cors_origins = env_list('DJANGO_CORS_ALLOWED_ORIGINS', '')
-_configured_csrf_origins = env_list('DJANGO_CSRF_TRUSTED_ORIGINS', '')
+_configured_cors_origins = env_list('DJANGO_CORS_ALLOWED_ORIGINS', _default_cors_origins)
+_configured_csrf_origins = env_list('DJANGO_CSRF_TRUSTED_ORIGINS', _default_cors_origins)
 
 CORS_ALLOWED_ORIGINS = list(dict.fromkeys(
     _configured_cors_origins + (_dev_cors_origins if DEBUG else [])
@@ -169,7 +177,11 @@ DJOSER = {
     'USERNAME_RESET_CONFIRM_URL': 'api/email/reset/confirm/{uid}/{token}/',
     'EMAIL_FRONTEND_URL': os.getenv(
         'DJOSER_EMAIL_FRONTEND_URL',
-        'http://127.0.0.1:8000/api/users/activate/{uid}/{token}/' if DEBUG else '',
+        (
+            'http://127.0.0.1:8000/api/users/activate/{uid}/{token}/'
+            if DEBUG
+            else 'https://tomskstolicakedra.red.tpu.ru/api/users/activate/{uid}/{token}/'
+        ),
     ).strip(),
     'USER_CREATE_PASSWORD_RETYPE': False,
     'SET_PASSWORD_RETYPE': False,
@@ -191,12 +203,13 @@ YOOKASSA_SHOP_ID = os.getenv('YOOKASSA_SHOP_ID', '').strip()
 YOOKASSA_SECRET_KEY = os.getenv('YOOKASSA_SECRET_KEY', '').strip()
 YOOKASSA_RETURN_URL = os.getenv(
     'YOOKASSA_RETURN_URL',
-    'http://localhost:3000/' if DEBUG else '',
+    'http://localhost:3000/' if DEBUG else 'https://tomskstolicakedra.red.tpu.ru/',
 ).strip()
 YOOKASSA_WEBHOOK_TOKEN = os.getenv('YOOKASSA_WEBHOOK_TOKEN', '').strip()
 YOOKASSA_DEFAULT_AMOUNT = os.getenv('YOOKASSA_DEFAULT_AMOUNT', '300.00').strip()
 
 if not DEBUG:
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    USE_X_FORWARDED_HOST = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
