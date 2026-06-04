@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, Popup, useMapEvent } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvent } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import { useEffect, useState } from 'react';
@@ -38,6 +38,35 @@ function ClickHandler({ onMapClick }) {
   return null;
 }
 
+function ResizeHandler() {
+  const map = useMap();
+
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => {
+      map.invalidateSize();
+    }, 0);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [map]);
+
+  return null;
+}
+
+const normalizeCedar = (cedar) => {
+  const latitude = Number(cedar.latitude);
+  const longitude = Number(cedar.longitude);
+
+  if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
+    return null;
+  }
+
+  return {
+    ...cedar,
+    latitude,
+    longitude,
+  };
+};
+
 const MapCedars = ({ onMapClick, selectedCoords }) => {
   const [cedars, setCedars] = useState([]);
   const [currentUserId, setCurrentUserId] = useState(null);
@@ -60,10 +89,20 @@ const MapCedars = ({ onMapClick, selectedCoords }) => {
 
     // Получаем список кедров
     fetch(`${config}/api/trees/`)
-    .then(res => res.json())
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(`Trees request failed: ${res.status}`);
+      }
+      return res.json();
+    })
     .then(data => {
       console.log('Данные с сервера:', data);
-      setCedars(data);
+      const trees = Array.isArray(data) ? data : data.results;
+      setCedars(
+        Array.isArray(trees)
+          ? trees.map(normalizeCedar).filter(Boolean)
+          : [],
+      );
     })
     .catch(err => console.error('Ошибка загрузки кедров:', err));
   }, []);
@@ -78,8 +117,10 @@ const MapCedars = ({ onMapClick, selectedCoords }) => {
       className={style.mapcon}
     >
       <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
+      <ResizeHandler />
       {onMapClick && <ClickHandler onMapClick={onMapClick} />}
       {selectedCoords && (
         <Marker

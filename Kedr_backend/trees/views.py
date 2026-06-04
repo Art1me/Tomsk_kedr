@@ -88,11 +88,16 @@ class TreePaymentCreateView(APIView):
     @transaction.atomic
     def post(self, request):
         # Достаём файлы и данные формы
+        picture = request.FILES.get('picture')
         images = request.FILES.getlist('images', [])
         data = request.data.copy()
+        data.pop('picture', None)
         data.pop('images', None)
         promo_code = (data.get('promo') or '').strip().upper()
+        receipt_email = data.get('receipt_email') or data.get('email')
         data.pop('promo', None)
+        data.pop('receipt_email', None)
+        data.pop('owner_name', None)
 
         # Валидируем данные дерева
         serializer = TreesSerializer(data=data)
@@ -114,6 +119,7 @@ class TreePaymentCreateView(APIView):
         owner = request.user if request.user.is_authenticated else None
         tree = serializer.save(
             owner=owner,
+            picture=picture,
             is_paid=bool(promo),
             paid_at=timezone.now() if promo else None,
         )
@@ -161,7 +167,6 @@ class TreePaymentCreateView(APIView):
         }
 
         # Чек (если указан email)
-        receipt_email = data.get('receipt_email') or data.get('email')
         if receipt_email:
             payload['receipt'] = {
                 'customer': {'email': receipt_email},
