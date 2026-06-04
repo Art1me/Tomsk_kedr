@@ -213,6 +213,10 @@ function App() {
           path="/api/users/activate/:uid/:token"
           element={<ConfirmRegistration />}
         />
+        <Route
+          path="/confirm-email/:uid/:token"
+          element={<ConfirmRegistration />}
+        />
         <Route path="/lk" element={<CabinetLayout />} />
         <Route path="/news" element={<NewsMainPage />} />
         <Route path="/news/:slug" element={<CurrentNews />} />

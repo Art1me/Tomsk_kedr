@@ -9,7 +9,6 @@ from django.contrib.auth.hashers import make_password
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
 from django.db.models import Q
-from django.shortcuts import redirect
 from django.urls import reverse
 from django.utils.decorators import method_decorator
 from django.utils.encoding import force_str
@@ -202,7 +201,10 @@ class UserConfirmEmailView(APIView):
             user.is_active = True
             user.is_verified = True
             user.save(update_fields=['is_active', 'is_verified'])
-            return redirect('http://88.218.67.221:3000/')
+            return Response(
+                {"detail": "Email successfully confirmed."},
+                status=status.HTTP_200_OK,
+            )
 
         return Response(
             {"detail": "Could not confirm email."},

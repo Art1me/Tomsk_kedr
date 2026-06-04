@@ -236,41 +236,6 @@ const RegisterKedrPage = () => {
     }
 
     const normalizedPromo = promo.trim().toUpperCase();
-    if (normalizedPromo) {
-      try {
-        const token = localStorage.getItem("token");
-        const promoResponse = await fetch(
-          `${config}/api/promocodes/${encodeURIComponent(normalizedPromo)}/`,
-          {
-            method: "GET",
-            headers: token ? { Authorization: `Token ${token}` } : {},
-          },
-        );
-
-        if (!promoResponse.ok) {
-          const promoErrorMessages = {
-            401: "Авторизуйтесь, чтобы использовать промокод",
-            403: "Нет доступа к использованию промокода",
-            404: "Такого промокода не существует",
-            406: "Этот промокод уже использован",
-          };
-          setState((prev) => ({
-            ...prev,
-            Error:
-              promoErrorMessages[promoResponse.status] ||
-              "Ошибка при проверке промокода",
-          }));
-          return;
-        }
-      } catch (error) {
-        console.error("Ошибка при проверке промокода:", error);
-        setState((prev) => ({
-          ...prev,
-          Error: "Ошибка при проверке промокода",
-        }));
-        return;
-      }
-    }
 
     const formData = new FormData();
 
@@ -313,7 +278,13 @@ const RegisterKedrPage = () => {
 
       if (response.ok) {
         const data = await response.json();
-        if (data.confirmation_url) {
+        if (data.paid_by_promocode) {
+          setState((prev) => ({
+            ...prev,
+            Error: "",
+            showSuccessModal: true,
+          }));
+        } else if (data.confirmation_url) {
           window.location.href = data.confirmation_url;
         } else {
           setState((prev) => ({
@@ -323,10 +294,16 @@ const RegisterKedrPage = () => {
         }
       } else {
         const data = await response.json();
+        const promoErrorMessages = {
+          404: "Такого промокода не существует",
+          406: "Этот промокод уже использован",
+        };
         console.error("Ошибка при отправке:", data);
         setState((prev) => ({
           ...prev,
-          Error: "Ошибка при отправке: " + JSON.stringify(data),
+          Error:
+            promoErrorMessages[response.status] ||
+            "Ошибка при отправке: " + JSON.stringify(data),
         }));
       }
     } catch (error) {

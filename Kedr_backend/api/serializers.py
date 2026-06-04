@@ -357,8 +357,12 @@ class UserCreateSerializer(BaseUserCreateSerializer):
 
         uid = urlsafe_base64_encode(force_bytes(user.pk))
         token = default_token_generator.make_token(user)
-        activation_path = reverse('user-activate', kwargs={'uid': uid, 'token': token})
-        activation_url = request.build_absolute_uri(activation_path)
+        activation_url_template = settings.DJOSER.get('EMAIL_FRONTEND_URL', '').strip()
+        if activation_url_template:
+            activation_url = activation_url_template.format(uid=uid, token=token)
+        else:
+            activation_path = reverse('user-activate', kwargs={'uid': uid, 'token': token})
+            activation_url = request.build_absolute_uri(activation_path)
 
         subject = 'Activate your account'
         message = (

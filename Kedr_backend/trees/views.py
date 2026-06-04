@@ -4,11 +4,13 @@ import uuid
 import requests
 from django.conf import settings
 from django.db import transaction
+from django.utils import timezone
 from rest_framework import generics, status
 from rest_framework.permissions import AllowAny, IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from promocodes.models import Promocode
 from .models import Trees, TreesImages
 from .serializers import TreesCoordinatesSerializer, TreesImageSerializer, TreesSerializer
 
@@ -85,26 +87,36 @@ class TreePaymentCreateView(APIView):
 
     @transaction.atomic
     def post(self, request):
-        # Проверяем наличие настроек платежной системы
-        if not settings.YOOKASSA_SHOP_ID or not settings.YOOKASSA_SECRET_KEY:
-            return Response(
-                {'detail': 'YooKassa credentials are not configured.'},
-                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            )
-
         # Достаём файлы и данные формы
         images = request.FILES.getlist('images', [])
         data = request.data.copy()
         data.pop('images', None)
+        promo_code = (data.get('promo') or '').strip().upper()
+        data.pop('promo', None)
 
         # Валидируем данные дерева
         serializer = TreesSerializer(data=data)
         if not serializer.is_valid():
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+        promo = None
+        if promo_code:
+            promo = Promocode.objects.select_for_update().filter(code=promo_code).first()
+            if not promo:
+                return Response({"detail": "Promocode not found"}, status=status.HTTP_404_NOT_FOUND)
+            if promo.is_activated:
+                return Response(
+                    {"detail": "Promocode already used"},
+                    status=status.HTTP_406_NOT_ACCEPTABLE,
+                )
+
         # Создаём дерево в статусе "не оплачено"
         owner = request.user if request.user.is_authenticated else None
-        tree = serializer.save(owner=owner, is_paid=False)
+        tree = serializer.save(
+            owner=owner,
+            is_paid=bool(promo),
+            paid_at=timezone.now() if promo else None,
+        )
 
         # Сохраняем изображения дерева
         if images:
@@ -113,6 +125,25 @@ class TreePaymentCreateView(APIView):
                 image_serializer = TreesImageSerializer(data=image_dict)
                 image_serializer.is_valid(raise_exception=True)
                 TreesImages.objects.create(**image_serializer.validated_data)
+
+        if promo:
+            promo.is_activated = True
+            promo.save(update_fields=['is_activated'])
+            return Response(
+                {
+                    'tree_id': tree.id,
+                    'is_paid': True,
+                    'paid_by_promocode': True,
+                },
+                status=status.HTTP_201_CREATED,
+            )
+
+        if not settings.YOOKASSA_SHOP_ID or not settings.YOOKASSA_SECRET_KEY:
+            tree.delete()
+            return Response(
+                {'detail': 'YooKassa credentials are not configured.'},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            )
 
         # Формируем запрос на создание платежа
         amount_value = settings.YOOKASSA_DEFAULT_AMOUNT

@@ -178,9 +178,9 @@ DJOSER = {
     'EMAIL_FRONTEND_URL': os.getenv(
         'DJOSER_EMAIL_FRONTEND_URL',
         (
-            'http://127.0.0.1:8000/api/users/activate/{uid}/{token}/'
+            'http://localhost:5173/confirm-email/{uid}/{token}/'
             if DEBUG
-            else 'https://tomskstolicakedra.red.tpu.ru/api/users/activate/{uid}/{token}/'
+            else 'https://tomskstolicakedra.red.tpu.ru/confirm-email/{uid}/{token}/'
         ),
     ).strip(),
     'USER_CREATE_PASSWORD_RETYPE': False,
