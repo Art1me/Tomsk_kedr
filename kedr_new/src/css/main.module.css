@@ -104,7 +104,7 @@ body {
   justify-content: center;
 }
 
-.block_map .leaflet-container {
+.block_map :global(.leaflet-container) {
   width: 100% !important;
   height: 100% !important;
   border-radius: 16px;

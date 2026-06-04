@@ -1,0 +1,6 @@
+Kedr_backend/staticfiles/
+Kedr_backend/db.sqlite3
+kedr_new/node_modules/
+kedr_new/build/
+kedr_new/dist/
+Kedr_backend/package-lock.json

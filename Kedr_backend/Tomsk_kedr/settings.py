@@ -13,7 +13,7 @@ def env_list(name, default=''):
     return [item.strip() for item in raw.split(',') if item.strip()]
 
 
-def env_bool(name, default=False):
+def env_bool(name, default=True):
     raw = os.getenv(name)
     if raw is None:
         return default
