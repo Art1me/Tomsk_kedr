@@ -118,7 +118,7 @@ const MapCedars = ({ onMapClick, selectedCoords }) => {
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        url="https://tomskstolicakedra.red.tpu.ru/osm_tiles/{z}/{x}/{y}.png"
+        url="/osm_tiles/{z}/{x}/{y}.png"
       />
       <ResizeHandler />
       {onMapClick && <ClickHandler onMapClick={onMapClick} />}

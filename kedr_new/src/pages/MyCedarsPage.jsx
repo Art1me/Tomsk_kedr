@@ -141,7 +141,7 @@ function MyCedarsPage() {
               mapRef.current = map;
             }}
           >
-            <TileLayer url="https://tomskstolicakedra.red.tpu.ru/osm_tiles/{z}/{x}/{y}.png" />
+            <TileLayer url="/osm_tiles/{z}/{x}/{y}.png" />
 
             {cedarsWithCoords.map((cedar) => {
               const lat = parseFloat(cedar.latitude);
